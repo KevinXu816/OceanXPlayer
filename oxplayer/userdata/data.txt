@@ -1,0 +1,67 @@
+﻿[
+{"name": "剑起苍澜", "url": "剑起苍澜.mp3",  "lrc": "lrc/剑起苍澜.lrc"} ,
+{"name": "青空", "url": "D:/taotao/My Music/游戏歌曲/AIR—青空.rm"} ,
+{"name": "监禁", "url": "D:/taotao/My Music/游戏歌曲/监禁.rm"} ,
+{"name": "青花瓷", "url": "青花瓷.mp3", "lrc": "lrc/青花瓷.lrc"} ,
+{"name": "aaaaaaaaaaa", "url":{"ie8|Safari|Chrome5.1":"公主的魔法项链.mp3","FireFox":"新建文件夹/ED6504.ogg"}} ,
+{"name": "滴答", "url": "http://file2.qlteacher.com/gz2011/medias/upload/2011/08/05/%e4%be%83%e4%be%83%e6%bb%b4%e7%ad%94.mp3"} ,
+{"name": "公主的魔法项链", "url": "公主的魔法项链.mp3", "lrc": "lrc/公主的魔法项链.lrc"} ,
+{"name": "仙剑之蝶恋 Liuyif", "url": "D:/taotao/My Music/流行歌曲/仙剑之蝶恋 Liuyif.mp3|wma"} ,
+{"name": "bvc cbc cccccb cccbnb ffb gfb  fcb ", "url": "D:/taotao/My Music/流行歌曲/JS - 花与剑.wma", "lrc": "lrc/JS - 花与剑.lrc", "video": false, "init": false} ,
+{"name": "ED6504.ogg", "url": "新建文件夹/ED6504.ogg", "lrc": "lrc/公主的魔法项链.lrc"} ,
+{"name": "124465", "url": "http://file2.qlteacher.com/gz2011/medias/upload/2011/08/05/%e4%be%83%e4%be%83%e6%bb%b4%e7%ad%94.mp3"} ,
+{"name": "心愿", "url": "心愿.mp3"} ,
+{"name": "77777777777777", "url": "D:/DOWN/111.wmv"} ,
+{"name": "NO BODY", "url": "D:/DOWN/NOBODY_baofeng.wmv"} ,
+{"name": "花与剑", "url": "D:/taotao/My Music/流行歌曲/JS - 花与剑.wma", "lrc": "lrc/JS - 花与剑.lrc", "video": false} ,
+{"name": "分类名l", "type": [
+	{"name": "花与剑1-2", "url": "D:/taotao/My Music/流行歌曲/JS - 花与剑.wma", "lrc": "lrc/JS - 花与剑.lrc", "video": true} ,
+	{"name": "花与剑1-3", "url": "D:/taotao/My Music/流行歌曲/JS - 花与剑.wma", "lrc": "lrc/JS - 花与剑.lrc", "video": false}
+]} ,
+{"name": "分类名2", "init": false, "type": [
+	{"name": "花与剑2-1", "url": "D:/taotao/My Music/流行歌曲/JS - 花与剑.wma", "lrc": "lrc/JS - 花与剑.lrc", "video": false} ,
+	{"name": "花与剑2-1", "url": "D:/taotao/My Music/流行歌曲/JS - 花与剑.wma", "lrc": "lrc/JS - 花与剑.lrc", "video": false} ,
+	{"name": "分类名2-166666666666666666666666", "type": [
+		{"name": "花与剑2-1-1", "url": "D:/taotao/My Music/流行歌曲/JS - 花与剑.wma", "lrc": "lrc/JS - 花与剑.lrc", "video": false} ,
+		{"name": "花与剑2-1-2", "url": "D:/taotao/My Music/流行歌曲/JS - 花与剑.wma", "lrc": "lrc/JS - 花与剑.lrc", "video": false} ,
+		{"name": "花与剑2-1-3", "url": "D:/taotao/My Music/流行歌曲/JS - 花与剑.wma", "lrc": "lrc/JS - 花与剑.lrc", "video": false, "init": true} ,
+		{"name": "花与剑2-1-4", "url": "D:/taotao/My Music/流行歌曲/JS - 花与剑.wma", "lrc": "lrc/JS - 花与剑.lrc", "video": false}
+	]} ,
+	{"name": "花与剑2-3", "url": "D:/taotao/My Music/流行歌曲/JS - 花与剑.wma", "lrc": "lrc/JS - 花与剑.lrc", "video": false} ,
+	{"name": "花与剑2-4", "url": "D:/taotao/My Music/流行歌曲/JS - 花与剑.wma", "lrc": "lrc/JS - 花与剑.lrc", "video": false}
+]} ,
+{"name": "花与剑1", "url": "D:/taotao/My Music/流行歌曲/JS - 花与剑.wma", "lrc": "lrc/JS - 花与剑.lrc", "video": false} ,
+{"name": "分类名3", "type": [
+	{"name": "分类名3-1", "type": [
+		{"name": "公主的魔法项链", "url": "公主的魔法项链.mp3", "lrc": "lrc/公主的魔法项链.lrc"}
+	]} ,
+	{"name": "分类名3-1", "type": [
+		{"name": "公主的魔法项链", "url": "公主的魔法项链.mp3", "lrc": "lrc/公主的魔法项链.lrc"}
+	]} ,
+	{"name": "分类名3-1", "type": [
+		{"name": "公主的魔法项链", "url": "公主的魔法项链.mp3", "lrc": "lrc/公主的魔法项链.lrc"}
+	]} ,
+	{"name": "分类名3-1", "type": [
+		{"name": "公主的魔法项链", "url": "公主的魔法项链.mp3", "lrc": "lrc/公主的魔法项链.lrc"}
+	]} ,
+	{"name": "分类名gmnfhfhdbv", "type": [
+		{"name": "公主的魔法项链", "url": "公主的魔法项链.mp3", "lrc": "lrc/公主的魔法项链.lrc"}
+	]} ,
+	{"name": "分类名3-1", "type": [
+		{"name": "公主的魔法项链", "url": "公主的魔法项链.mp3", "lrc": "lrc/公主的魔法项链.lrc"}
+	]} ,
+	{"name": "分类名3-1", "type": [
+		{"name": "公主的魔法项链", "url": "公主的魔法项链.mp3", "lrc": "lrc/公主的魔法项链.lrc"}
+	]} ,
+	{"name": "分类名ngfhfhf", "type": [
+		{"name": "公主的魔法项链", "url": "公主的魔法项链.mp3", "lrc": "lrc/公主的魔法项链.lrc"}
+	]} ,
+	{"name": "分类名3-2", "type": [
+		{"name": "公主的魔法项链", "url": "公主的魔法项链.mp3", "lrc": "lrc/公主的魔法项链.lrc"} ,
+		{"name": "公主的魔法项链", "url": "公主的魔法项链.mp3", "lrc": "lrc/公主的魔法项链.lrc"}
+	]}
+]} ,
+{"name": "花与剑2", "url": "D:/taotao/My Music/流行歌曲/JS - 花与剑.wma", "lrc": "lrc/JS - 花与剑.lrc", "video": false} ,
+{"name": "花与剑3", "url": "D:/taotao/My Music/流行歌曲/JS - 花与剑.wma", "lrc": "lrc/JS - 花与剑.lrc", "video": false}
+
+]	

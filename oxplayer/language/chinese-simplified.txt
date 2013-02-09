@@ -1,0 +1,118 @@
+﻿{
+  "menuWord":  [
+	{ "na":  "播放", "da":  [
+		{ "na":  "播放/暂停", "com": "play" ,"key": "P" },
+		{ "na":  "停止", "com": "stop" ,"key": "S" },
+		{ "na":  "前进", "com": "forth" ,"key": "U" },
+		{ "na":  "后退", "com": "back" ,"key": "Y" },
+		null,
+		{ "na":  "音量", "da":  [
+			{ "na":  "音量+", "com": "volume1" ,"key": "=" },
+			{ "na":  "音量-", "com": "volume0","key": "-"  },
+			null,
+			{ "na":  "静音", "com": "mute" ,"key": "M" }
+		]},
+		null,
+		{ "na":  "全屏", "com": "fullScreen" ,"key": "F" }
+	]},
+	{ "na":  "列表", "da":  [
+		{ "na":  "列表循环", "da":  [
+			{ "na":  "顺序播放", "com": "loop", "options": 0, "key": "N" },
+			{ "na":  "全部循环", "com": "loop", "options": 1, "key": "L" },
+			{ "na":  "单曲重复", "com": "loop", "options": 2, "key": "1" },
+			{ "na":  "随机播放", "com": "loop", "options": 3, "key": "R" }
+		]},
+		{ "na":  "第一曲", "com": "listHome" },
+		{ "na":  "上一曲", "com": "listPrev" ,"key": "J" },
+		{ "na":  "下一曲", "com": "listNext" ,"key": "K" },
+		{ "na":  "最后一曲", "com": "listEnd" }
+	]},
+	{ "na":  "皮肤", "da":  [
+		{ "na":  "关于当前皮肤...", "com": "skinAbout" },
+		{ "na":  "联系皮肤作者...", "com": "toSkinAuthor" },
+		null
+	]},
+	{ "na":  "窗口", "da":  [
+		{ "na":  "打开副界面", "com": "openConsoleB" ,"key": "B" },
+		{ "na":  "锁定控制台窗口", "com": "lockConsole" },
+		{ "na":  "复位控制台窗口", "com": "resetConsole" },
+		{ "na":  "复位全部窗口", "com": "resetAll" },
+		null
+	]},
+	{ "na":  "选项", "da":  [
+		{ "na":  "允许使用快捷键", "com": "accessKey" },
+		{ "na":  "倒序显示播放时间", "com": "reverseTime" }
+	]},
+	{ "na":  "其它", "da":  [
+		{ "na":  "使用帮助...", "com": "help" },
+		{ "na":  "联系播放器作者...", "com": "toAuthor" },
+		{ "na":  "关于播放器...", "com": "about" }
+	]},
+	null,
+	{ "na":  "打开媒体选单...", "com": "openMediamenu" ,"key": "D" },
+	{ "na":  "打开视频窗口...", "com": "openVideo" ,"key": "V" },
+	null,
+	{ "na":  "关闭控制台", "com": "closeConsole" ,"key": "X" }
+  ],
+
+  "buttonTitle": {
+	"min": "关闭窗口",
+	"max": "最大化窗口",
+	"reset": "复位窗口",
+	"lock": "锁定窗口"
+  },
+
+  "dialogBs1": {"确定":1},
+  "dialogBs2": {"确定":1,"取消":null},
+  "dialogBs2x": {"是":1,"否":2},
+  "dialogBs3": {"是":1,"否":2,"取消":null},
+  "dialogDefaultTitle": "O'ceanX播放器",
+
+  "flieText": "浩海 O'ceanX播放器",
+  "dePlay": "是否现在播放音乐？",
+  "about": "关于浩海 O'ceanX播放器",
+  "help": "浩海 O'ceanX播放器使用帮助\n浩海 O'ceanX播放器使用帮助 浩海 O'ceanX播放器使用帮助\n浩海 O'ceanX播放器使用帮助 浩海 O'ceanX播放器使用帮助\n浩海 O'ceanX播放器使用帮助 浩海 O'ceanX播放器使用帮助\n浩海 O'ceanX播放器使用帮助 浩海 O'ceanX播放器使用帮助\n浩海 O'ceanX播放器使用帮助 浩海 O'ceanX播放器使用帮助\n浩海 O'ceanX播放器使用帮助 浩海 O'ceanX播放器使用帮助\n浩海 O'ceanX播放器使用帮助 浩海 O'ceanX播放器使用帮助\n浩海 O'ceanX播放器使用帮助 浩海 O'ceanX播放器使用帮助\n浩海 O'ceanX播放器使用帮助 浩海 O'ceanX播放器使用帮助\n浩海 O'ceanX播放器使用帮助 浩海 O'ceanX播放器使用帮助\n浩海 O'ceanX播放器使用帮助 浩海 O'ceanX播放器使用帮助\n浩海 O'ceanX播放器使用帮助 浩海 O'ceanX播放器使用帮助\n浩海 O'ceanX播放器使用帮助 浩海 O'ceanX播放器使用帮助\n浩海 O'ceanX播放器使用帮助 浩海 O'ceanX播放器使用帮助\n浩海 O'ceanX播放器使用帮助 浩海 O'ceanX播放器使用帮助",
+  "loopTitle": "循环模式:",
+  "loop": ["顺序播放","全部循环","单曲重复","随机播放"],
+  "volume": "音量:",
+  "playState": {
+	"stopped": "停止",
+	"paused": "暂停",
+	"playing": "正在播放",
+	"buffering": "缓冲",
+	"waiting": "等待开始",
+	"mediaEnded": "播放已结束",
+	"transitioning": "准备新媒体",
+	"ready": "准备就绪",
+	"reconnecting": "重新连接",
+	"error": "媒体出错",
+	"undefined": "未知状态"
+  },
+  "toUpNo": "已经到达列表之首",
+  "toDownNo": "已经到达列表之尾",
+  "noPlay": "文件无法播放",
+  "clue": "此命令暂时无效",
+  "errorNo": "错误!重试:",
+  "autoNext": "自动播放下一曲",
+  "reTime1": "倒序显示播放时间",
+  "reTime2": "正常显示播放时间",
+
+
+  "all": "※ 全部 ※",
+  "allPlay": "全部播放",
+  "playSelect": "播放所选",
+  "addPlay": "追加播放",
+  "addSelect": "追加所选",
+  "allSelect": "全选",
+  "reSelect": "反选",
+  "noSelect": "全清",
+  
+  "noResult": "没有找到任何匹配的项目！",
+  "qSelect": "请先选择要播放的项目！",
+
+  "search": "分类内搜索",
+
+
+
+  "nbsp": "　"
+}

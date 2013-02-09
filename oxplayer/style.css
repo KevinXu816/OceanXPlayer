@@ -1,0 +1,276 @@
+﻿html , body { height:100%; }
+.oxplayer * {
+	font-family: 宋体; margin:0px; padding: 0px;
+	-moz-user-select: none;
+}
+.oxplayer {
+	font-size: 12px; line-height: 13px;
+	color: #000000;
+	min-width: 0px; min-height: 0px;
+}
+.oxplayer li { list-style-type: none; }
+.oxplayer ._ox_relativeDivBox {
+	min-width: 0px; min-height: 0px;
+	position: relative;
+	z-index: 900;
+	cursor: crosshair;
+}
+.oxplayer abbr {
+	z-index: 50;
+	cursor: pointer;
+}
+.oxplayer ._wo_resize {
+	cursor: se-resize;
+}
+
+
+.oxplayer ._ox_relativeDivBox > div > div ,
+.oxplayer ._ox_consoleBox > div > div ,
+.oxplayer abbr {
+	position: absolute;
+	min-width: 0px; min-height: 0px;
+}
+
+.oxplayer abbr {
+	display:block;
+	background-repeat: no-repeat;
+	background-position: left top;
+	border-style: none;
+	text-align: center;
+}
+.oxplayer abbr:hover  { background-position: center top; }
+.oxplayer abbr:active { background-position: right top; }
+.oxplayer abbr.-ox-state2         { background-position: left bottom; }
+.oxplayer abbr.-ox-state2:hover   { background-position: center bottom; }
+.oxplayer abbr.-ox-state2:active  { background-position: right bottom; }
+.oxplayer abbr.-ox-state50        { background-position: left center; }
+.oxplayer abbr.-ox-state50:hover  { background-position: center center; }
+.oxplayer abbr.-ox-state50:active { background-position: right center; }
+.oxplayer abbr.-ox-state33        { background-position: left 33.33%; }
+.oxplayer abbr.-ox-state33:hover  { background-position: center 33.33%; }
+.oxplayer abbr.-ox-state33:active { background-position: right 33.33%; }
+.oxplayer abbr.-ox-state66        { background-position: left 66.66%; }
+.oxplayer abbr.-ox-state66:hover  { background-position: center 66.66%; }
+.oxplayer abbr.-ox-state66:active { background-position: right 66.66%; }
+
+
+.oxplayer ._ox_infoTextBox ,
+.oxplayer ._ox_infoText {
+	height:100%;
+	overflow:hidden; white-space: nowrap;
+}
+.oxplayer ._ox_infoText span {
+	position: relative;
+	top: 0px;
+}
+.oxplayer ._ox_infoClue {
+	height:100%;
+}
+
+.oxplayer ._ox_timeText ,
+.oxplayer ._ox_playSlider ,
+.oxplayer ._ox_volumeSlider {
+	cursor: pointer;
+}
+.oxplayer ._ox_playSlider > .-ox-sche ,
+.oxplayer ._ox_volumeSlider > .-ox-sche {
+	width: 0px; height: 100%;
+}
+.oxplayer ._ox_playSlider > .-ox-sche > div ,
+.oxplayer ._ox_volumeSlider > .-ox-sche > div {
+	position: relative; left: 100%;
+}
+.oxplayer ._ox_playSlider:hover > .-ox-sche > div ,
+.oxplayer ._ox_volumeSlider:hover > .-ox-sche > div {
+	background-position: center top;
+}
+.oxplayer ._ox_playSlider:active > .-ox-sche > div ,
+.oxplayer ._ox_volumeSlider:active > .-ox-sche > div {
+	background-position: right top;
+}
+
+.oxplayer ._ox_dialogTime {
+	position: relative;
+	display:none;
+}
+
+/*----****----*/
+
+.oxplayer .-ox-listResize {	cursor: s-resize; }
+.oxplayer .-ox-listResize:hover { background-position: center top }
+.oxplayer .-ox-listResize:active { background-position: right top }
+
+
+.oxplayer .-ox-listBox {
+	cursor: default;
+	overflow:auto;
+}
+.oxplayer .-ox-listBox li {
+	overflow: hidden;
+	height: 12px;
+}
+
+
+/*----------------    -------------------*/
+
+.oxplayer .-ox-pluginTitle {
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+/*----------------    -------------------*/
+
+
+.oxplayer ._ox_consoleA {
+	width: 0px;
+}
+.oxplayer ._ox_consoleB {
+	display:none;
+}
+.oxplayer ._ox_consoleBox.-ox-Bshow ._ox_consoleB {
+	display:block;
+}
+
+.oxplayer ._ox_consoleBox {
+	z-index: 40;
+}
+.oxplayer ._ox_videoBox {
+	z-index: 10;
+}
+.oxplayer ._ox_mediamenuBox {
+	z-index: 30;
+}
+.oxplayer .-ox-pluginsBox {
+	z-index: 20;
+}
+
+
+.oxplayer ._ox_videoObjDiv ,
+.oxplayer ._ox_videoObjDiv * {
+	width: 100%; height: 100%;
+}
+
+
+/*----------------  媒体选单  -------------------*/
+
+
+.oxplayer ._ox_typeBox {
+	cursor:default;
+	overflow: hidden;
+}
+.oxplayer ._ox_typeBox dl > dl {
+	margin: 0px 0px 0px 5px;
+}
+.oxplayer ._ox_typeBox dd{
+	white-space: nowrap;
+}
+.oxplayer ._ox_typeBox dd:hover {
+	background-position: left center;
+}
+.oxplayer ._ox_typeBox dd.-ox-s {
+	background-position: left bottom;
+}
+
+.oxplayer ._ox_listBox input {
+	margin: 0px 6px 0px 0px;
+	vertical-align: middle;
+}
+.oxplayer ._ox_listBox {
+	cursor: default;
+	overflow: auto;
+}
+
+.oxplayer ._ox_listSearch {
+	position: absolute;
+}
+
+
+
+
+/*----------------  菜单  -------------------*/
+
+.oxplayer ._ox_menu {
+	display:none; position: fixed; z-index:922;
+	cursor:default;
+}
+
+.oxplayer ._ox_menu .-ox-h {
+	float: right; font-size: 17px;
+}
+
+.oxplayer ._ox_menu .-ox-ds {
+	visibility: hidden;
+}
+.oxplayer ._ox_menu .-ox-d .-ox-ds {
+	visibility: inherit;
+}
+.oxplayer ._ox_menu li {
+	position:relative;
+	display:block;
+}
+
+.oxplayer ._ox_menu li ul {
+	display:none;
+	position:absolute;
+	left:98%;
+	z-index:6; top:-1px;
+	cursor:default;
+}
+.oxplayer ._ox_menu ul.-ox-right {
+	left:auto;
+	right:98%;
+}
+
+.oxplayer ._ox_hiddeDiv {
+	position: fixed; top:-9999px;
+}
+
+/*----------------  对话框  -------------------*/
+
+.oxplayer ._ox_dialogBox {
+	position:fixed; width:100%; height: 100%; z-index: 933;
+	left:0px; top:0px; right:0px; bottom:0px;
+	display:none;
+}
+.oxplayer ._ox_dialogBoxBack {
+	position:fixed; width:100%; height: 100%;
+	left:0px; top:0px; right:0px; bottom:0px;
+	background-color: #000000;
+	filter: alpha(opacity=50); opacity:0.5;
+}
+
+.oxplayer .-ox-dialog {
+	position:fixed; overflow:hidden;
+	min-height: 0px;
+}
+
+.oxplayer .-ox-dialog .-ox-c {
+	position:absolute; left:0px; top:0px; width:100%; height:100%; z-index: -5;
+}
+.oxplayer .-ox-dialog .-ox-t {
+	cursor: crosshair;
+}
+.oxplayer .-ox-dialog form {
+	line-height: 1.5;
+	padding: 8px; min-height: 30px; max-height: 320px;
+	overflow: auto;
+}
+.oxplayer .-ox-dialog form * {
+	vertical-align: middle;
+}
+
+.oxplayer .-ox-dialog form.-ox-logo {
+	padding: 11px 8px 8px 70px; min-height: 54px;
+	background: url("tb64.png") no-repeat 5px 3px;
+}
+.oxplayer .-ox-dialog form input[type="text"],
+.oxplayer .-ox-dialog form input[type="password"],
+.oxplayer .-ox-dialog form textarea {
+	padding: 2px;
+}
+
+.oxplayer .-ox-dialog .-ox-b {
+	position:absolute; left:0px; right:0px; bottom:0px;
+}
+

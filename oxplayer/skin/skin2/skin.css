@@ -1,0 +1,640 @@
+﻿/*------------  控制台  ------------*/
+
+/*  播放器控制台窗口大小  */
+.oxplayer ._ox_consoleBox {
+	width: 220px; height: 80px;
+}
+/*  控制台副界面显示时控制台窗口大小  */
+.oxplayer ._ox_consoleBox.-ox-Bshow {
+
+}
+
+
+/*  控制台主界面 背景图片  */
+.oxplayer ._ox_consoleA {
+	left: 0px; top: 0px;
+	width: 220px; height: 100%;
+	background: url("consoleA.png") no-repeat;
+}
+/*  控制台副界面 位置/大小/背景图片  */
+.oxplayer ._ox_consoleB {
+	left: 50px; top: 80px;
+	width: 150px; bottom: 5px;
+	z-index: 3;
+}
+
+/*  主界面装饰图片  */
+/*  装饰图片可以有很多个，要求编号从1开始，中间编号不能断  */
+.oxplayer ._ox_consoleA .-ox-ornament1 {
+	left: 38px; bottom: 12px; width: 172px; top: 55px; z-index: -33;
+	background: url("consoleA2.png");
+}
+.oxplayer ._ox_consoleA .-ox-ornament2 {
+	left: 38px; bottom: 0px; width: 172px; height: 12px; z-index: -33;
+	background: url("consoleA3.png");
+}
+
+/*  副界面装饰图片  */
+/*  装饰图片可以有很多个，要求编号从1开始，中间编号不能断  */
+.oxplayer ._ox_consoleB .-ox-ornament1 {
+	left: 0px; top: 0px; width: 149px; height: 21px; z-index: -33;
+	background: url("consoleB1.png");
+}
+
+
+
+/*  电子屏 位置/大小/字体/背景图片  */
+.oxplayer ._ox_infoTextBox {
+	left: 88px; top: 21px;
+	width: 108px; height: 14px;
+	color: #ffcc33;
+	text-shadow: 1px 1px 1px #5c3c6f;
+	filter: DropShadow(color=#995c3c6f,offx=1,offy=1,positive=1);
+}
+/*  电子屏中的提示框 字体  */
+.oxplayer ._ox_infoClue {
+	text-align: center;
+	color: #ffffff;
+}
+/*  当前播放时间信息 位置/大小/字体  */
+.oxplayer ._ox_timeText {
+	left: 144px; top: 38px;
+	width: 50px; height: 19px;
+	text-align: right;
+	color: #ffffff;
+	font-weight: bold;
+	font-size: 16px;
+	text-shadow: 2px 1px 2px #000000;
+	filter: DropShadow(color=#99000000,offx=2,offy=1,positive=1);
+}
+/*  播放状态信息 位置/大小/字体  */
+.oxplayer ._ox_stateText {
+	left: 88px; top: 39px;
+	width: 70px; height: 14px;
+	text-align: left;
+	color: #ffcc33;
+	text-shadow: 1px 1px 1px #5c3c6f;
+	filter: DropShadow(color=#995c3c6f,offx=1,offy=1,positive=1);
+}
+
+/*  播放进度滑动条 位置/大小/背景图片  */
+.oxplayer ._ox_playSlider {
+	left: 79px; top: 59px;
+	width: 82px; height: 13px;
+	padding-right: 11px;/*这里设置成和滑动手柄的width一个数值*/
+	background: url() no-repeat;
+}
+/*  播放进度滑动条已滑过的背景图片  */
+.oxplayer ._ox_playSlider > .-ox-sche {
+	background: url("playSlider.png");
+}
+/*  播放进度滑动条滑动手柄 大小/背景图片  */
+.oxplayer ._ox_playSlider > .-ox-sche > div {
+	width: 11px; height: 100%;
+	background: url("playSliderH.png") no-repeat;
+}
+/*  播放滑动条拖动预览时间 大小/背景图片/字体  */
+.oxplayer ._ox_dialogTime {
+	width: 55px; height: 27px;
+	left: -51px; top: 0px;
+	background: url("dialogTime.png") no-repeat;
+	padding-top: 11px;
+	text-align: center;
+	color: #ffff66;
+}
+
+
+/*  音量滑动条 位置/大小/背景图片  */
+.oxplayer ._ox_volumeSlider {
+	left: 89px; top: 1px;
+	width: 62px; height: 10px;
+	padding-right: 0px;/*这里设置成和滑动手柄的width一个数值*/
+	background: url() no-repeat;
+}
+/*  音量滑动条已滑过的背景图片  */
+.oxplayer ._ox_volumeSlider > div {
+	background: url("volumeSlider.png") no-repeat;
+}
+/*  音量滑动条滑动手柄 大小/背景图片  */
+.oxplayer ._ox_volumeSlider > div > div {
+	width: 0px; height: 100%;
+	background: url() no-repeat;
+}
+
+
+/*
+按钮图片说明:
+       在每个按钮图片中都包含【左】【中】【右】三个按钮样式
+	   【左】为正常时的样式，【中】为鼠标移到按钮上时的样式，【右】按钮按下时的样式
+*/
+/*  主界面固定按钮  */
+/*  播放按钮 位置/大小/背景图片  */
+.oxplayer ._ox_playButton {
+	left: 20px; top: 20px;
+	width: 40px; height: 40px;
+	background: url("play.png");
+}
+/*  静音按钮 位置/大小/背景图片  */
+.oxplayer ._ox_muteButton {
+	left: 67px; top: 1px;
+	width: 17px; height: 17px;
+	background: url("mute.png");
+}
+/*  打开副界面按钮 位置/大小/背景图片  */
+.oxplayer ._ox_consoleBButton {
+	left: 183px; top: 61px;
+	width: 19px; height: 15px;
+	background: url("openConsoleB.png");
+}
+/*  锁定控制台按钮 位置/大小/背景图片  */
+.oxplayer .-ox-lockConsoleButton {
+	left: 201px; top: 17px;
+	width: 17px; height: 17px;
+	background: url("lockConsole.png");
+}
+
+
+/*  副界面固定按钮  */
+/*  循环按钮 位置/大小/背景图片  */
+.oxplayer ._ox_loopButton {
+	left: 123px; top: 1px;
+	width: 18px; height: 18px;
+	background: url("loop.png");
+}
+/*  当前播放列表 位置/大小/背景图片  */
+.oxplayer ._ox_playList {
+	left: px; top: 25px;
+	width: 150px; bottom: 8px;
+}
+/*  播放的项目 背景图片  */
+.oxplayer ._ox_playList li {
+	padding: 0px 5px;
+	width: 122px; height: 16px;
+	line-height: 16px;
+	color: #e7ba0a;
+}
+.oxplayer ._ox_playList li:hover {
+	background: url("listBackground2.png") no-repeat;
+}
+/*  当前播放的项目 背景图片  */
+.oxplayer ._ox_playList li.-ox-playing {
+	background: url("listBackground.png") no-repeat;
+	color: #ffffff;
+}
+
+/*  当前播放列表高度拖动手柄 大小/背景图片  */
+.oxplayer .-ox-listResize {
+	left: 1px; bottom: 0px;
+	width: 147px; height: 7px;
+	background: url("listResize.png");
+}
+
+
+/*  主界面自定义按钮 位置/大小/背景图片  */
+/*  自定义按钮可以有很多个，但要在skinconfig.txt中定义按钮的命令  */
+.oxplayer .-ox-consoleA-button0 {
+	left: 30px; top: 60px;
+	width: 20px; height: 20px;
+	background: url("stop.png");
+}
+.oxplayer .-ox-consoleA-button1 {
+	left: 0px; top: 30px;
+	width: 20px; height: 20px;
+	background: url("prev.png");
+}
+.oxplayer .-ox-consoleA-button2 {
+	left: 60px; top: 30px;
+	width: 20px; height: 20px;
+	background: url("next.png");
+}
+.oxplayer .-ox-consoleA-button3 {
+	left: 30px; top: 0px;
+	width: 20px; height: 20px;
+	background: url("openMediamenu.png");
+}
+/*  副界面自定义按钮 位置/大小/背景图片  */
+.oxplayer .-ox-consoleB-button0 {
+	left: 10px; top: 1px;
+	width: 18px; height: 18px;
+	background: url("openVideo.png");
+}
+.oxplayer .-ox-consoleB-button1 {
+	left: 35px; top: 1px;
+	width: 18px; height: 18px;
+	background: url("openLrc.png");
+}
+.oxplayer .-ox-consoleB-button2 {
+	left: 60px; top: 1px;
+	width: 18px; height: 18px;
+	background: url("saveList.png");
+}
+.oxplayer .-ox-consoleB-button3 {
+	left: 85px; top: 1px;
+	width: 18px; height: 18px;
+	background: url("loadList.png");
+}
+
+
+
+/*------------  视频  ------------*/
+
+/*  视频边框图片  */
+.oxplayer .-ox-videoA {		/*  上左  */
+	left: 0px; top: 0px; width: 26px; height: 30px;
+	background: url("vsA.png");
+}
+.oxplayer .-ox-videoB {		/*  上中  */
+	left: 26px; top: 0px; right: 30px; height: 30px;
+	background: url("vsB.png");
+}
+.oxplayer .-ox-videoC {		/*  上右  */
+	right: 0px; top: 0px; width: 30px; height: 30px;
+	background: url("vsC.png");
+}
+.oxplayer .-ox-videoD {		/*  中左  */
+	left: 0px; top: 30px; bottom: 13px; width: 10px;
+	background: url("vsD.png");
+}
+.oxplayer .-ox-videoCenter {	/*  中央视频区域  */
+	left: 10px; right: 12px; top: 30px; bottom: 13px;
+	background-color: #7d499a;
+}
+.oxplayer .-ox-videoE {		/*  中右  */
+	right: 0px; top: 30px; bottom: 13px; width: 12px;
+	background: url("vsE.png");
+}
+.oxplayer .-ox-videoF {		/*  下左  */
+	left: 0px; bottom: 0px; width: 18px; height: 13px;
+	background: url("vsF.png");
+}
+.oxplayer .-ox-videoG {		/*  下中  */
+	left: 18px; bottom: 0px; right: 16px; height: 13px;
+	background: url("vsG.png");
+}
+.oxplayer .-ox-videoH {		/*  下右  */
+	right: 0px; bottom: 0px; width: 16px; height: 13px;
+	background: url("vsH.png");
+}
+/*  视频窗口装饰图片  */
+/*  装饰图片可以有很多个，要求编号从1开始，中间编号不能断  */
+.oxplayer ._ox_videoBox .-ox-ornament1 {
+	left: -10px; top: -7px;
+	width: 75px; height: 45px;
+	background: url("videoornament1.png");
+}
+
+
+
+/*  关闭视频按钮 位置/大小/背景图片  */
+.oxplayer .-ox-closeVideoButton {
+	right: 22px; top: 4px;
+	width: 20px; height: 20px;
+	background: url("closeVideo.png");
+}
+/*  最大化视频按钮 位置/大小/背景图片  */
+.oxplayer .-ox-maxVideoButton {
+	right: 42px; top: 4px;
+	width: 18px; height: 20px;
+	background: url("maxVideo.png");
+}
+/*  复位视频按钮 位置/大小/背景图片  */
+.oxplayer .-ox-resetVideoButton {
+	right: 60px; top: 4px;
+	width: 18px; height: 20px;
+	background: url("resetVideo.png");
+}
+/*  锁定视频按钮 位置/大小/背景图片  */
+.oxplayer .-ox-lockVideoButton {
+	right: 78px; top: 4px;
+	width: 19px; height: 20px;
+	background: url("lockVideo.png");
+}
+
+
+/*------------  媒体选单  ------------*/
+/*  媒体选单 大小/背景图片  */
+.oxplayer ._ox_mediamenuBox {
+	width: 277px; height: 320px;
+	background: url("mediamenu.png") no-repeat;
+}
+
+/*  分类标签 位置/大小/背景图片  */
+.oxplayer ._ox_typeBox {
+	left: 4px; top: 142px;
+	width: 95px; height: 144px;
+}
+/*  分类标签项目  */
+.oxplayer ._ox_typeBox dd{
+	color: #faf4ff;
+	text-shadow: 0px 0px 2px #9933ff;
+	background: url("typeBackground.png");
+	line-height: 18px;
+	padding-left: 6px;
+}
+
+
+/*  媒体选单列表 位置/大小/背景图片  */
+.oxplayer ._ox_listBox {
+	left: 105px; top: 31px;
+	width: 160px; height: 254px;
+	color: #660099;
+}
+.oxplayer ._ox_listBox span:hover {color: #990000;}
+.oxplayer ._ox_listBox span:active {color: #ff0000;}
+
+
+
+/*  搜索框 位置/大小/背景图片  */
+.oxplayer ._ox_listSearch {
+	left: 104px; top: 7px;
+	width: 100px; height: 14px;
+	background: transparent;
+	outline: none;
+	border: none;
+	color: #413645;
+	border-bottom: #cc00ff 1px dotted;
+}
+.oxplayer ._ox_listSearch:hover ,
+.oxplayer ._ox_listSearch:focus {
+	color: #660099;
+	border-bottom: #990099 2px dotted;
+}
+
+
+
+
+/*  关闭按钮 位置/大小/背景图片  */
+.oxplayer .-ox-closeMediamenuButton {
+	right: 12px; top: 2px;
+	width: 20px; height: 20px;
+	background: url("closeVideo.png");
+}
+/*  复位按钮 位置/大小/背景图片  */
+.oxplayer .-ox-resetMediamenuButton {
+	right: 32px; top: 2px;
+	width: 18px; height: 20px;
+	background: url("resetVideo.png");
+}
+/*  锁定按钮 位置/大小/背景图片  */
+.oxplayer .-ox-lockMediamenuButton {
+	right: 50px; top: 2px;
+	width: 19px; height: 20px;
+	background: url("lockVideo.png");
+}
+
+
+/*  全部播放按钮 位置/大小/背景图片  */
+.oxplayer ._ox_allPlayButton {
+	left: 11px; top: 25px;
+	width: 82px; height: 24px;
+	line-height: 24px;
+	color: #ccccff;
+	background: url("mmButton1.png");
+}
+/*  播放所选按钮 位置/大小/背景图片  */
+.oxplayer ._ox_playSelectButton {
+	left: 11px; top: 51px;
+	width: 82px; height: 24px;
+	line-height: 24px;
+	color: #ccccff;
+	background: url("mmButton1.png");
+}
+/*  追加播放按钮 位置/大小/背景图片  */
+.oxplayer ._ox_addPlayButton {
+	left: 11px; top: 77px;
+	width: 82px; height: 24px;
+	line-height: 24px;
+	color: #ccccff;
+	background: url("mmButton1.png");
+}
+/*  追加所选按钮 位置/大小/背景图片  */
+.oxplayer ._ox_addSelectButton {
+	left: 11px; top: 103px;
+	width: 82px; height: 24px;
+	line-height: 24px;
+	color: #ccccff;
+	background: url("mmButton1.png");
+}
+
+/*  全选按钮 位置/大小/背景图片  */
+.oxplayer ._ox_allSelectButton {
+	left: 100px; top: 292px;
+	width: 55px; height: 24px;
+	line-height: 24px;
+	color: #ccccff;
+	background: url("mmButton2.png");
+}
+/*  反选按钮 位置/大小/背景图片  */
+.oxplayer ._ox_reSelectButton {
+	left: 158px; top: 292px;
+	width: 55px; height: 24px;
+	line-height: 24px;
+	color: #ccccff;
+	background: url("mmButton2.png");
+}
+/*  全清按钮 位置/大小/背景图片  */
+.oxplayer ._ox_noSelectButton {
+	left: 215px; top: 292px;
+	width: 55px; height: 24px;
+	line-height: 24px;
+	color: #ccccff;
+	background: url("mmButton2.png");
+}
+
+/*  分类标签上翻页按钮 位置/大小/背景图片  */
+.oxplayer ._ox_typePageUp {
+	left: 20px; top: 290px;
+	width: 37px; height: 10px;
+	background: url("typePageUp.png");
+}
+/*  分类标签下翻页按钮 位置/大小/背景图片  */
+.oxplayer ._ox_typePageDown {
+	left: 54px; top: 290px;
+	width: 37px; height: 10px;
+	background: url("typePageDown.png");
+}
+
+
+
+
+/*------------  插件窗口  ------------*/
+/*  插件窗口边框图片  */
+.oxplayer .-ox-pluginA {		/*  上左  */
+	left: 0px; top: 0px; width: 25px; height: 31px;
+	background: url("vpA.png");
+}
+.oxplayer .-ox-pluginB {		/*  上中  */
+	left: 25px; top: 0px; right: 25px; height: 31px;
+	background: url("vpB.png");
+}
+.oxplayer .-ox-pluginC {		/*  上右  */
+	right: 0px; top: 0px; width: 25px; height: 31px;
+	background: url("vpC.png");
+}
+.oxplayer .-ox-pluginD {		/*  中左  */
+	left: 0px; top: 31px; bottom: 13px; width: 8px;
+	background: url("vpD.png");
+}
+.oxplayer .-ox-pluginCenter {	/*  中央区域  */
+	left: 8px; right: 8px; top: 31px; bottom: 13px;
+	background: url("vpCenter.png");
+}
+.oxplayer .-ox-pluginE {		/*  中右  */
+	right: 0px; top: 31px; bottom: 13px; width: 8px;
+	background: url("vpE.png");
+}
+.oxplayer .-ox-pluginF {		/*  下左  */
+	left: 0px; bottom: 0px; width: 18px; height: 13px;
+	background: url("vpF.png");
+}
+.oxplayer .-ox-pluginG {		/*  下中  */
+	left: 18px; bottom: 0px; right: 18px; height: 13px;
+	background: url("vpG.png");
+}
+.oxplayer .-ox-pluginH {		/*  下右  */
+	right: 0px; bottom: 0px; width: 18px; height: 13px;
+	background: url("vpH.png");
+}
+
+/*  插件窗口装饰图片  */
+/*  装饰图片可以有很多个，要求编号从1开始，中间编号不能断  */
+.oxplayer .-ox-pluginsBox .-ox-ornament1 {
+
+}
+
+/*  关闭按钮 位置/大小/背景图片  */
+.oxplayer .-ox-closePluginButton {
+	right: 22px; top: 2px;
+	width: 20px; height: 20px;
+	background: url("closeVideo.png");
+}
+/*  复位按钮 位置/大小/背景图片  */
+.oxplayer .-ox-resetPluginButton {
+	right: 42px; top: 2px;
+	width: 18px; height: 20px;
+	background: url("resetVideo.png");
+}
+/*  锁定按钮 位置/大小/背景图片  */
+.oxplayer .-ox-lockPluginButton {
+	right: 60px; top: 2px;
+	width: 19px; height: 20px;
+	background: url("lockVideo.png");
+}
+
+/*  插件窗口标题  */
+.oxplayer .-ox-pluginTitle {
+	left: 20px; right: 80px; top: 6px; height: 14px;
+	color: #9f4ad9;
+	text-shadow: 1px 1px 2px #000000;
+	filter: DropShadow(color=#66000000,offx=1,offy=1,positive=1);
+}
+/*  插件窗口内容区域  */
+.oxplayer .-ox-pluginBody {
+	left: 12px; right: 11px; top: 28px; bottom: 11px;
+	color:#6a5c78;
+}
+
+/*  插件窗口配色方案  */
+.oxplayer .-ox-plugin-color1 {
+	color:#9900cc;
+	text-shadow: 0px 0px 2px #9999ff;
+}
+.oxplayer .-ox-plugin-color2 {
+	color:#c6093d;
+}
+
+.oxplayer .-ox-plugin-background1 {
+	background-color: #ad7ee7;
+	color: #ffffff;
+}
+.oxplayer .-ox-plugin-background2 {
+	background-color: #deceff;
+	color: #53137d;
+}
+
+.oxplayer .-ox-plugin-border1 {
+	border: #53137d 1px solid;
+}
+
+.oxplayer .-ox-plugin-button1
+{
+	background: url("pluginButton1.png");
+	color: #ffffff;
+	border: #9e60cc 1px solid;
+	height: 17px; line-height: 17px;
+	border-radius: 7px;
+}
+
+
+
+/*------------  菜单  ------------*/
+/*  主菜单 边框/宽度/背景  */
+.oxplayer ._ox_menu {
+	border: #a38bd3 1px solid;
+	background: url("menuback.png") repeat-y #ffffff;
+	width:190px; padding-left: 15px;
+	box-shadow: 4px 4px 14px #373737;
+}
+/*  子菜单 边框/宽度/背景  */
+.oxplayer ._ox_menu li ul {
+	border: #a38bd3 1px solid;
+	background: url("menuback2.png") repeat-y #ffffff;
+	width:160px; padding-left: 7px;
+	box-shadow: 4px 4px 14px #373737;
+}
+/* 水平线颜色 */
+.oxplayer ._ox_menu hr {
+	border-style:none; overflow:hidden; font-size: 1px;	line-height: 1px; height:1px;
+	background-color: #ccccff;color: #ccccff; margin:2px 6px;
+}
+/*  菜单选项 字体颜色  */
+.oxplayer ._ox_menu li {
+	color:#6a5c78;
+	padding:5px 6px 4px 6px;
+}
+/*  鼠标移到菜单选项上时 字体、背景颜色  */
+.oxplayer ._ox_menu li:hover {
+	background: url("menuik.png"); color:#5b1672;
+}
+
+
+/*------------  对话框  ------------*/
+/*  对话框 边框  */
+.oxplayer .-ox-dialog {
+	border: #623483 1px solid;
+	box-shadow:5px 3px 10px #373737;
+	border-radius: 18px;
+}
+/*  对话框 背景  */
+.oxplayer .-ox-dialog .-ox-c {
+	background-color: #fee9fd;
+	filter: alpha(opacity=70); opacity:0.7;
+	border-radius: 18px;
+}
+/*  对话框 标题  */
+.oxplayer .-ox-dialog .-ox-t {
+	height: 19px;
+	padding: 4px 0px 0px 14px;
+	background: url("dialogTitle.png") repeat-x;
+	color: #ffffff;
+	border-radius: 18px 18px 0px 0px;
+	text-shadow: 2px 1px 2px #000000;
+}
+/*  对话框 内容字体  */
+.oxplayer .-ox-dialog form {
+	color: #370367;
+}
+/*  对话框 按钮区域  */
+.oxplayer .-ox-dialog .-ox-b {
+	height: 40px;
+	text-align: center;
+	border-top: #bcaeab 1px solid;
+	background-color: #e8e8e8;
+	border-radius: 0px 0px 18px 18px;
+}
+/*  对话框 按钮  */
+.oxplayer .-ox-dialog .-ox-b input {
+	width: 50px; height: 24px; margin: 7px 4px 0px 4px; padding: 2px;
+}
+
+

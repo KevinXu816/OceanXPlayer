@@ -1,0 +1,29 @@
+﻿{
+  "menuWord":  [
+	null,
+	{ "na":  "保存当前列表...", "com": "saveList" },
+	{ "na":  "读取用户列表...", "com": "loadList" },
+	{ "na":  "编辑播放列表...", "com": "editList" ,"key": "E" },
+	{ "na":  "召回上次列表", "com": "returnList" }
+  ] ,
+  "noList": "已经没有上次列表了",
+  "editList": "编辑播放列表",
+  "saveList": "保存当前列表",
+  "loadList": "读取用户列表",
+  "loadList2": "请选择要读取的用户列表:",
+  "newList": "新建列表",
+  "newListName": "新列表名称",
+  "renameList": "列表改名",
+  "reList": "更新列表",
+  "playList": "【当前播放列表】",
+  "delUserList": "是否直的要删除用户列表？",
+  "clue1": "列表名称不能为空",
+  "clue2": "列表名称不能有以下字符：\n< > %27 %22 \\ \/ . ,",
+  "clue3": "已经存在！",
+  "newListMax": "用户列表数据太多，无法保存",
+  "selectList": "选择列表:",
+  "buttonValue": ["上移","下移","全选","反选","不选","剪切","复制","粘贴","删除"],
+  "buttonValue2": ["新建列表","列表改名","删除列表"],
+  "dialogBs1": {"保存":1,"取消":null},
+  "dialogBs2": {"关闭":1}
+}

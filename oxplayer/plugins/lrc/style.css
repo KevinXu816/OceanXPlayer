@@ -1,0 +1,72 @@
+﻿.oxplayer ._wo_lrctextBoxBox {
+	position: absolute;
+	left: 0px; top: 0px;
+	right: 0px; bottom: 0px;
+	overflow:hidden;
+	white-space: nowrap;
+}
+
+.oxplayer .-ox-lrc-yCenter {
+	position: absolute;
+	left: 0px; bottom: 50%;
+	height: 8px; width: 100%;
+}
+
+.oxplayer ._wo_lrcTextBox {
+	position: absolute;
+	left: 0px; min-height: 0px; width: 100%;
+	cursor: pointer;
+}
+
+.oxplayer ._wo_lrcPast ,
+.oxplayer ._wo_lrcCurrent ,
+.oxplayer ._wo_lrcTextBox font ,
+.oxplayer ._wo_lrcText div {
+	height: 18px;
+	line-height: 18px;
+	font-size: 12px;
+}
+
+.oxplayer ._wo_lrcText div {
+	position: relative; left: 50%;
+}
+
+.oxplayer ._wo_lrcPast ,
+.oxplayer ._wo_lrcCurrent {
+	position: absolute;
+	overflow:hidden;
+	left: 50%; min-width: 0px;
+}
+
+.oxplayer ._wo_lrcSrtTimeBox {
+	position: absolute;
+	overflow:hidden;
+	display:none;
+	right: 100%; top: 0px;
+	width: 156px; min-height: 0px;
+	border-radius: 15px;
+}
+.oxplayer ._wo_lrcSrtTimeBox.-ox-lrc-r {
+	left: 100%;	right: auto;
+}
+
+.oxplayer .-ox-lrcSrtTime {
+	width: 100%; height: 20px;
+	text-align: center;
+	border-radius: 15px 15px 0px 0px;
+	padding-top: 4px;
+}
+
+.oxplayer ._wo_lrcTimeButton1 {
+	left: 5px; top: 3px; width: 20px;
+}
+
+.oxplayer ._wo_lrcTimeButton2 {
+	right: 5px; top: 3px; width: 20px;
+}
+
+
+.oxplayer ._wo_lrcgsh {
+	padding: 5px 4px 10px 5px;
+}
+
