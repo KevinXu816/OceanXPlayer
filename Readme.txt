@@ -1,0 +1,1 @@
+OceanX Player is a javascript media player for support HTML5 PC & Mobile web browser, compatible IE7, IE8 
