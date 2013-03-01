@@ -2270,7 +2270,7 @@ var ox = (function (ox)		// **播放器主对象**
 			'  <div class="_ox_stateText">- - - -</div>' +	//播放状态信息
 			'  <div class="_ox_playSlider">' +				//播放进度滑动条
 			'    <div class="-ox-sche"><div></div></div>' +
-			'    <div class="_ox_dialogTime"></div>' +
+			'    <div class="_ox_dialogTime"></div>' +		//播放滑动条拖动预览时间
 			'  </div>' +
 			'  <div class="_ox_volumeSlider">' +		//音量滑动条
 			'    <div class="-ox-sche"><div></div></div>' +
@@ -2340,7 +2340,7 @@ var ox = (function (ox)		// **播放器主对象**
 		setup: function (win)
 		{
 			win.setMove();
-			win.setResize(null,{minw: 150, minh: 150});
+			win.setResize(null,{minw: 160, minh: 150});
 			win.event.attach("dragStart",function (){
 				ox.co.videoObjDiv.hide();
 			});

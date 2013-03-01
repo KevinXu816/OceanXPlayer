@@ -1,8 +1,8 @@
 ﻿[
-{"name": "剑起苍澜", "url": "剑起苍澜.mp3",  "lrc": "lrc/剑起苍澜.lrc"} ,
+{"name": "剑起苍澜", "url": "../web/剑起苍澜.mp3",  "lrc": "lrc/剑起苍澜.lrc"} ,
 {"name": "青空", "url": "D:/taotao/My Music/游戏歌曲/AIR—青空.rm"} ,
 {"name": "监禁", "url": "D:/taotao/My Music/游戏歌曲/监禁.rm"} ,
-{"name": "青花瓷", "url": "青花瓷.mp3", "lrc": "lrc/青花瓷.lrc"} ,
+{"name": "青花瓷", "url": "../web/青花瓷.mp3", "lrc": "lrc/青花瓷.lrc"} ,
 {"name": "aaaaaaaaaaa", "url":{"ie8|Safari|Chrome5.1":"公主的魔法项链.mp3","FireFox":"新建文件夹/ED6504.ogg"}} ,
 {"name": "滴答", "url": "http://file2.qlteacher.com/gz2011/medias/upload/2011/08/05/%e4%be%83%e4%be%83%e6%bb%b4%e7%ad%94.mp3"} ,
 {"name": "公主的魔法项链", "url": "公主的魔法项链.mp3", "lrc": "lrc/公主的魔法项链.lrc"} ,
