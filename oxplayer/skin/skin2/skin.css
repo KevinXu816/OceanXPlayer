@@ -315,50 +315,50 @@
 /*------------  媒体选单  ------------*/
 /*  媒体选单 大小/背景图片  */
 .oxplayer ._ox_mediamenuBox {
-	width: 277px; height: 320px;
+	width: 290px; height: 341px;
 	background: url("mediamenu.png") no-repeat;
 }
 
 /*  分类标签 位置/大小/背景图片  */
 .oxplayer ._ox_typeBox {
-	left: 4px; top: 142px;
-	width: 95px; height: 144px;
+	left: -2px; top: 147px;
+	width: 99px; height: 168px;
 }
 /*  分类标签项目  */
 .oxplayer ._ox_typeBox dd{
-	color: #faf4ff;
-	text-shadow: 0px 0px 2px #9933ff;
+	color: #ffffff;
+	text-shadow: 0px 0px 2px #ffcc00;
 	background: url("typeBackground.png");
-	line-height: 18px;
+	line-height: 21px;
 	padding-left: 6px;
 }
 
 
 /*  媒体选单列表 位置/大小/背景图片  */
 .oxplayer ._ox_listBox {
-	left: 105px; top: 31px;
-	width: 160px; height: 254px;
-	color: #660099;
+	left: 109px; top: 59px;
+	width: 171px; height: 245px;
+	color: #ffff99;
 }
-.oxplayer ._ox_listBox span:hover {color: #990000;}
-.oxplayer ._ox_listBox span:active {color: #ff0000;}
+.oxplayer ._ox_listBox span:hover  {color: #ffffff;}
+.oxplayer ._ox_listBox span:active {color: #ffff00;}
 
 
 
 /*  搜索框 位置/大小/背景图片  */
 .oxplayer ._ox_listSearch {
-	left: 104px; top: 7px;
-	width: 100px; height: 14px;
-	background: transparent;
+	left: 112px; top: 28px;
+	width: 148px; height: 17px;
+	background: url("searchBox.png") no-repeat;
 	outline: none;
 	border: none;
-	color: #413645;
-	border-bottom: #cc00ff 1px dotted;
+	padding: 6px 0px 0px 23px;
+	color: #9f5306;
 }
 .oxplayer ._ox_listSearch:hover ,
 .oxplayer ._ox_listSearch:focus {
-	color: #660099;
-	border-bottom: #990099 2px dotted;
+	color: #503405;
+	background-position: left bottom;
 }
 
 
@@ -366,19 +366,19 @@
 
 /*  关闭按钮 位置/大小/背景图片  */
 .oxplayer .-ox-closeMediamenuButton {
-	right: 6px; top: 2px;
+	right: 6px; top: 6px;
 	width: 16px; height: 16px;
 	background: url("closeVideo.png");
 }
 /*  复位按钮 位置/大小/背景图片  */
 .oxplayer .-ox-resetMediamenuButton {
-	right: 26px; top: 2px;
+	right: 26px; top: 6px;
 	width: 16px; height: 16px;
 	background: url("resetVideo.png");
 }
 /*  锁定按钮 位置/大小/背景图片  */
 .oxplayer .-ox-lockMediamenuButton {
-	right: 46px; top: 2px;
+	right: 46px; top: 6px;
 	width: 16px; height: 16px;
 	background: url("lockVideo.png");
 }
@@ -386,72 +386,72 @@
 
 /*  全部播放按钮 位置/大小/背景图片  */
 .oxplayer ._ox_allPlayButton {
-	left: 11px; top: 25px;
-	width: 82px; height: 24px;
-	line-height: 24px;
-	color: #ccccff;
+	left: 22px; top: 23px;
+	width: 67px; height: 25px;
+	line-height: 25px;
+	color: #503405;
 	background: url("mmButton1.png");
 }
 /*  播放所选按钮 位置/大小/背景图片  */
 .oxplayer ._ox_playSelectButton {
-	left: 11px; top: 51px;
-	width: 82px; height: 24px;
-	line-height: 24px;
-	color: #ccccff;
+	left: 22px; top: 50px;
+	width: 67px; height: 25px;
+	line-height: 25px;
+	color: #503405;
 	background: url("mmButton1.png");
 }
 /*  追加播放按钮 位置/大小/背景图片  */
 .oxplayer ._ox_addPlayButton {
-	left: 11px; top: 77px;
-	width: 82px; height: 24px;
-	line-height: 24px;
-	color: #ccccff;
+	left: 22px; top: 77px;
+	width: 67px; height: 25px;
+	line-height: 25px;
+	color: #503405;
 	background: url("mmButton1.png");
 }
 /*  追加所选按钮 位置/大小/背景图片  */
 .oxplayer ._ox_addSelectButton {
-	left: 11px; top: 103px;
-	width: 82px; height: 24px;
-	line-height: 24px;
-	color: #ccccff;
+	left: 22px; top: 104px;
+	width: 67px; height: 25px;
+	line-height: 25px;
+	color: #503405;
 	background: url("mmButton1.png");
 }
 
 /*  全选按钮 位置/大小/背景图片  */
 .oxplayer ._ox_allSelectButton {
-	left: 100px; top: 292px;
-	width: 55px; height: 24px;
-	line-height: 24px;
-	color: #ccccff;
+	left: 113px; top: 309px;
+	width: 51px; height: 22px;
+	line-height: 22px;
+	color: #ffffff;
 	background: url("mmButton2.png");
 }
 /*  反选按钮 位置/大小/背景图片  */
 .oxplayer ._ox_reSelectButton {
-	left: 158px; top: 292px;
-	width: 55px; height: 24px;
-	line-height: 24px;
-	color: #ccccff;
+	left: 169px; top: 309px;
+	width: 51px; height: 22px;
+	line-height: 22px;
+	color: #ffffff;
 	background: url("mmButton2.png");
 }
 /*  全清按钮 位置/大小/背景图片  */
 .oxplayer ._ox_noSelectButton {
-	left: 215px; top: 292px;
-	width: 55px; height: 24px;
-	line-height: 24px;
-	color: #ccccff;
+	left: 225px; top: 309px;
+	width: 51px; height: 22px;
+	line-height: 22px;
+	color: #ffffff;
 	background: url("mmButton2.png");
 }
 
 /*  分类标签上翻页按钮 位置/大小/背景图片  */
 .oxplayer ._ox_typePageUp {
-	left: 20px; top: 290px;
-	width: 37px; height: 10px;
+	left: 40px; top: 318px;
+	width: 21px; height: 21px;
 	background: url("typePageUp.png");
 }
 /*  分类标签下翻页按钮 位置/大小/背景图片  */
 .oxplayer ._ox_typePageDown {
-	left: 54px; top: 290px;
-	width: 37px; height: 10px;
+	left: 70px; top: 318px;
+	width: 21px; height: 21px;
 	background: url("typePageDown.png");
 }
 
@@ -561,9 +561,9 @@
 {
 	background: url("pluginButton1.png");
 	color: #ffffff;
-	border: #9e60cc 1px solid;
+	border: #c48751 1px solid;
 	height: 17px; line-height: 17px;
-	border-radius: 2px;
+	border-radius: 5px;
 }
 
 
