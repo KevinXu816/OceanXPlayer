@@ -32,7 +32,7 @@
    * 窗口总控制Class
    * 播放器系统事件Class
    * 滑动条Class
-   * 右键菜单Class
+   * 主菜单Class
    * 电子屏Class
    * 播放时间框Class
    * 列表Class
@@ -835,24 +835,25 @@ var SliderClass = $f.Class(function(cid,mf)		// **滑动条Class**
 
 
 /*==================================================*\
-                    右键菜单Class
+                    主菜单Class
 \*==================================================*/
 
 
-var MenuClass = $f.Class(function(mword,idp)//*********** 右键菜单Class
+var MenuClass = $f.Class(function(mword,idp)//*********** 主菜单Class
 {
-	this.idj = idp;					//主菜单jQuery对像
+	this.idj = idp;					//主菜单对像
 	this.hibutt = null;				//看不见的button，用于控制菜单隐藏
 	this.hbj = $();					//看不见的button，用于快捷键
-	this.tOnt = null;				//
+	this.tOnt = null;				//子菜单显示Timeout
+	this.menudown = false;			//
 	this.accessKeyState = true;		//快捷键State
+	this.accessKeyList = "";		//快捷键说明列表
+	this.accessKeyAlt = ($f.browser.ie || $f.browser.chrome || $f.browser.safari)?"Alt+":$f.browser.firefox?"Shift+Alt+":"";		//快捷键的组合键
 	this.idj.html(this.menuHtml(mword));
-	this.id2j = this.idj.find('ul').slice(1);	//子菜单(全部)jQuery对像
 	this.setopenChilMenu();
 	this.setHiddenMenu();
 	this.co = this.getmico();
 	this.setStateEvent();
-	this.hbj.appendTo(ox.co.hiddeButton);
 },{
 	menuHtml: function (oo)				//处理数据，生成菜单的html
 	{
@@ -865,11 +866,14 @@ var MenuClass = $f.Class(function(mword,idp)//*********** 右键菜单Class
 				html += '<li><span class="-ox-h">&#8227;</span><span class="-ox-ds">&#10003;</span>'+vv.na+this.menuHtml(vv.da)+'</li>';
 			else
 			{
-				html += '<li class="_ox_Mi_'+vv.com+'" data-com="'+vv.com+'" data-options="'+vv.options+'"><span class="-ox-ds">&#10003;</span><span>'+vv.na +'</span>'+ (vv.key?" ("+vv.key+")":"")+'</li>';
+				html += '<li class="_ox_Mi_'+vv.com+'" data-com="'+vv.com+'" data-options="'+vv.options+'"><span class="-ox-ds">&#10003;</span><span>'+vv.na +'</span></li>';
 
-				word.buttonTitle[vv.com] = vv.na.replace("...","") + (vv.key?" ("+vv.key+")":"");
+				word.buttonTitle[vv.com] = vv.na.replace("...","") + (vv.key?" ("+this.accessKeyAlt+vv.key+")":"");
 				if(vv.key)
+				{
+					this.accessKeyList += word.buttonTitle[vv.com] + "\n";
 					this.hbj=this.hbj.add('<input type="button" data-com="'+vv.com+'" data-options="'+vv.options+'" accesskey="'+vv.key+'" onFocus="this.blur()" />');
+				}
 			}
 		});
 		html += '</ul>';
@@ -891,8 +895,19 @@ var MenuClass = $f.Class(function(mword,idp)//*********** 右键菜单Class
 	{
 		var t = this;			//闭包中需要的变量
 		this.hibutt = $('<input />',{type:"button"}).blur(function (){
-			t.idj.stop(true, true).fadeOut(200);
+			setTimeout(function (){
+				if(t.menudown)
+				{
+					t.menudown = false;
+					t.hibutt.focus();
+				}
+				else
+					t.idj.stop(true, true).hide();
+			},50);
 		}).appendTo(ox.co.hiddeDiv);
+		this.idj.mousedown(function(){
+			t.menudown = true;
+		});
 	} ,
 
 	setOpenEventTo: function (idp)
@@ -907,26 +922,44 @@ var MenuClass = $f.Class(function(mword,idp)//*********** 右键菜单Class
 
 	openMenu: function (e)		//打开主菜单
 	{
-		this.idj.stop(true, true);
-		this.id2j.stop(true, true).hide();
-		var w = this.idj.outerWidth();
-		var h = this.idj.outerHeight();
-		var sl = $(document).scrollLeft();
-		var st = $(document).scrollTop();
-		var dw = $(document.body).outerWidth(true);
-		var dh = $(document.body).outerHeight();
-		var x = e.pageX-sl;
-		var y = e.pageY-st;
+		var w, h, sl, st, dw, dh, x, y, bw, bh;
+		w = this.idj.outerWidth();
+		h = this.idj.outerHeight();
+		sl = $(document).scrollLeft();
+		st = $(document).scrollTop();
+		dw = $(document.body).outerWidth(true);
+		dh = $(document.body).outerHeight();
+		if(e instanceof $)
+		{
+			var of = e.offset();
+			x = of.left-sl;
+			y = of.top-st;
+			bw = e.outerWidth();
+			bh = e.outerHeight();
+		}
+		else
+		{
+			x = e.pageX-sl;
+			y = e.pageY-st;
+			bw = 0;
+			bh = 0;
+		}
 		var o = { left:"auto", top:"auto", right:"auto", bottom:"auto"};
-		if(dw-x>w)
+		if(x+w < dw)
 			o.left = x + "px";
+		else if(x-w-w > 0)
+			o.right = dw-x-bw + "px";
 		else
-			o.right= dw-x + "px";
-		if(dh-y>h)
-			o.top = y + "px";
-		else
+			o.left = 0 + "px";
+		if(y+bh+h < dh)
+			o.top = y+bh + "px";
+		else if(y-h > 0)
 			o.bottom = dh-y + "px";
+		else
+			o.top = 0 + "px";
+		this.idj.find(".-ox-display").removeClass("-ox-display");
 		this.idj.css(o).show(200);
+		this.menudown = false;
 		this.hibutt.focus();
 	} ,
 
@@ -939,41 +972,55 @@ var MenuClass = $f.Class(function(mword,idp)//*********** 右键菜单Class
 			t.tOnt = setTimeout(function (){
 				t.openChilMenu($(tt));
 			},200);
+		}).click(function(){
+			clearTimeout(t.tOnt);
+			t.openChilMenu($(this));
 		});
 	} ,
 
-	openChilMenu: function (li)			//设置打开子菜单
+	openChilMenu: function (li)			//打开子菜单
 	{
+		if(li.hasClass("-ox-display")) return;
+		li.parent().find(".-ox-display").removeClass("-ox-display");
 		var hul = li.children('ul');
-		if(hul.length!=0 && hul.css("display")!="none")
-			return;
-		li.siblings('li').find('ul').hide();
-		if(hul.length==0)
-			return;
+		if(hul.length==0) return;
 		var sl = $(document).scrollLeft();
 		var dw = $(document.body).outerWidth(true);
 		var w = li.outerWidth();
 		var w2 = hul.outerWidth();
 		var of = li.offset();
-		hul.toggleClass("-ox-right",of.left+w+w2>sl+dw).show(200);
+		hul.toggleClass("-ox-right",of.left+w+w2>sl+dw);
+		this.animate(hul);
+		li.addClass("-ox-display");
+	} ,
+
+	animate: function (ul)			//打开子菜单animate
+	{
+		ul.stop(true, true).show(200, function (){ul.css('display', '');});
 	} ,
 
 	setRunFun: function (fun)			//设置执行菜单命令的事件
 	{
+		var t = this;
 		function f(){
 			if($box.display) return;
-			var t = $(this);
-			fun(t.data("com"), t.data("options"));
+			var et = $(this);
+			fun(et.data("com"), et.data("options"));
+			t.menudown = false;
+			t.hibutt.blur();
 		}
-		this.idj.find("li[data-com]").mousedown(f);
+		this.idj.find("li[data-com]").click(f);
 		this.hbj.click(f);
 	} ,
 
 	accessKey: function (s)				//设置是否允许播放器使用快捷键
 	{
 		this.accessKeyState = s!==undefined ? s : !this.accessKeyState;
-		ox.co.hiddeButton.toggle(this.accessKeyState);
-		ox.event.run("accessKey",this.accessKeyState);
+		if(this.accessKeyState)
+			this.hbj.appendTo(ox.co.hiddeButton);
+		else
+			this.hbj.detach();
+;		ox.event.run("accessKey",this.accessKeyState);
 	} ,
 
 	setStateEvent: function ()		//设置状态事件
@@ -2213,6 +2260,7 @@ var ox = (function (ox)		// **播放器主对象**
 			case "reverseTime":		rv = ox.time.reverse(); break;
 			case "accessKey":		rv = ox.menu.accessKey(); break;
 
+			case "menu":			ox.menu.openMenu(ox.co.menuButton); break;
 			case "openMediamenu":	windows.mediamenu.minKg(); break;
 			case "openConsoleB":	ox.openConsoleB(); break;
 			case "openVideo":		windows.video.minKg(); break;
@@ -2222,6 +2270,7 @@ var ox = (function (ox)		// **播放器主对象**
 			case "resetAll":		$.each(windows,function(){this.reset()}); break;
 			case "about":			$box.alert(word.about,240,word.buttonTitle.about,"logo"); break;
 			case "help":			$box.alert(word.help,240,word.buttonTitle.help); break;
+			case "accessKeyHelp":	$box.alert(ox.menu.accessKeyList,240,word.buttonTitle.accessKeyHelp); break;
 			case "skinAbout":		ox.skin.about(); break;
 			case "toAuthor":		ox.toAuthor(); break;
 			case "toSkinAuthor":	ox.skin.toAuthor(); break;
@@ -2278,12 +2327,13 @@ var ox = (function (ox)		// **播放器主对象**
 			'  <abbr class="_ox_playButton" data-com="play"></abbr>' +		//播放按钮
 			'  <abbr class="_ox_muteButton" data-com="mute"></abbr>' +		//静音按钮
 			'  <abbr class="_ox_consoleBButton" data-com="openConsoleB"></abbr>' +		//打开副界面按钮
+			'  <abbr class="_ox_menuButton" data-com="menu"></abbr>' +		//主菜单按钮
 			'  <abbr class="_wo_lock -ox-lockConsoleButton"></abbr>' +		//锁定控制台按钮
 			'</div>' +
 			'<div class="_ox_consoleB">' +				//控制台副界面
 			'  <abbr class="_ox_loopButton" data-com="loop"></abbr>' +		//循环按钮
 			'  <div class="_ox_playList -ox-listBox"></div>' +				//当前播放列表
-			'  <div class="-ox-listResize _wo_resize"></div>' +							//
+			'  <div class="-ox-listResize _wo_resize"></div>' +				//
 			'</div>' +
 			'' ,
 		defaultValue: {

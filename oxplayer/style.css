@@ -210,20 +210,30 @@
 	display:block;
 }
 
-.oxplayer ._ox_menu li ul {
+.oxplayer ._ox_menu li > ul {
 	display:none;
 	position:absolute;
-	left:98%;
+	left:96%;
 	z-index:6; top:-1px;
 	cursor:default;
 }
 .oxplayer ._ox_menu ul.-ox-right {
 	left:auto;
-	right:98%;
+	right:96%;
+}
+.oxplayer ._ox_menu li.-ox-display > ul {
+	display:block;
+}
+.oxplayer ._ox_menu:hover .-ox-display {
+	background: none;
 }
 
 .oxplayer ._ox_hiddeDiv {
-	position: fixed; top:-9999px;
+	position: fixed;
+	top:9px; left:9px;
+	overflow: hidden;
+	width: 0px; height: 0px;;
+
 }
 
 /*----------------  对话框  -------------------*/

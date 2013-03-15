@@ -33,7 +33,6 @@
 		null
 	]},
 	{ "na":  "窗口", "da":  [
-		{ "na":  "打开副界面", "com": "openConsoleB" ,"key": "B" },
 		{ "na":  "锁定控制台窗口", "com": "lockConsole" },
 		{ "na":  "复位控制台窗口", "com": "resetConsole" },
 		{ "na":  "复位全部窗口", "com": "resetAll" },
@@ -44,14 +43,16 @@
 		{ "na":  "倒序显示播放时间", "com": "reverseTime" }
 	]},
 	{ "na":  "其它", "da":  [
-		{ "na":  "使用帮助...", "com": "help" },
-		{ "na":  "联系播放器作者...", "com": "toAuthor" },
+		{ "na":  "快捷键列表...", "com": "accessKeyHelp" },
+		{ "na":  "联系播放器作者", "com": "toAuthor" },
 		{ "na":  "关于播放器...", "com": "about" }
 	]},
 	null,
-	{ "na":  "打开媒体选单...", "com": "openMediamenu" ,"key": "D" },
+	{ "na":  "打开媒体选单...", "com": "openMediamenu" ,"key": "O" },
 	{ "na":  "打开视频窗口...", "com": "openVideo" ,"key": "V" },
+	{ "na":  "打开副界面", "com": "openConsoleB" ,"key": "B" },
 	null,
+	{ "na":  "使用帮助...", "com": "help" },
 	{ "na":  "关闭控制台", "com": "closeConsole" ,"key": "X" }
   ],
 
