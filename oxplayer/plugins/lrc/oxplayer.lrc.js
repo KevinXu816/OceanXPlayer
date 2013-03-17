@@ -86,7 +86,7 @@ $o.event.attach("windowsInitial", function (){
 	$p.win.setResize(null,{minw: 160, minh: 100, maxw: 400, maxh: 400});
 	$p.co.title.text($p.word.title);
 	$p.win.event.attach("restate", function (v){
-		$o.getObject("ox.menu.co.openLrc").toggleClass("-ox-d",v!=0);
+		$o.getObject("ox.menu").itemState("openLrc",v!=0);
 	});
 
 	lrc.setDrawing();

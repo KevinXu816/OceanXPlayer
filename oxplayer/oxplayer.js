@@ -853,7 +853,6 @@ var MenuClass = $f.Class(function(mword,idp)//*********** 主菜单Class
 	this.setopenChilMenu();
 	this.setHiddenMenu();
 	this.co = this.getmico();
-	this.setStateEvent();
 },{
 	menuHtml: function (oo)				//处理数据，生成菜单的html
 	{
@@ -1020,57 +1019,18 @@ var MenuClass = $f.Class(function(mword,idp)//*********** 主菜单Class
 			this.hbj.appendTo(ox.co.hiddeButton);
 		else
 			this.hbj.detach();
-;		ox.event.run("accessKey",this.accessKeyState);
+		ox.event.run("accessKey",this.accessKeyState);
 	} ,
 
-	setStateEvent: function ()		//设置状态事件
+	itemState: function (id,cv)			//设置菜单项目状态
 	{
-		var co = this.co;
-		windows.video.event.attach("restate",function (v){
-			co.openVideo.toggleClass("-ox-d",v!=0);
-		});
-		windows.mediamenu.event.attach("restate",function (v){
-			co.openMediamenu.toggleClass("-ox-d",v!=0);
-		});
-		windows.console.event.attach("restate",function (v){
-			co.closeConsole.toggleClass("-ox-d",v==0);
-		});
-		windows.console.event.attach("posState",function (v){
-			co.lockConsole.toggleClass("-ox-d",v);
-		});
-		ox.event.attach("playState",function (v){
-			co.play.toggleClass("-ox-d",v);
-			ox.co.playButton.toggleClass("-ox-state2",v);
-		});
-		ox.event.attach("loadSkin",function (v){
-			co.loadSkin.each(function (){
+		if(this.co[id].length>0)
+			this.co[id].each(function (){
 				var t = $(this);
-				t.toggleClass("-ox-d",t.data("options")==v);
+				t.toggleClass("-ox-d",t.data("options")==cv);
 			});
-		});
-		ox.event.attach("loopState",function (v){
-			co.loop.each(function (){
-				var t = $(this);
-				t.toggleClass("-ox-d",t.data("options")==v);
-			});
-			ox.co.loopButton.attr("title",word.loop[v])
-				.removeClass("-ox-state33 -ox-state66 -ox-state2")
-				.addClass(["","-ox-state33","-ox-state66","-ox-state2"][v]);
-		});
-		ox.event.attach("mute",function (v){
-			co.mute.toggleClass("-ox-d",v);
-			ox.co.muteButton.toggleClass("-ox-state2",v);
-		});
-		ox.event.attach("openConsoleB",function (v){
-			co.openConsoleB.toggleClass("-ox-d",v);
-			ox.co.consoleBButton.toggleClass("-ox-state2",v);
-		});
-		ox.event.attach("reverseTime",function (v){
-			co.reverseTime.toggleClass("-ox-d",v);
-		});
-		ox.event.attach("accessKey",function (v){
-			co.accessKey.toggleClass("-ox-d",v);
-		});
+		else
+			this.co[id].toggleClass("-ox-d",cv);
 	}
 });
 
@@ -2498,6 +2458,52 @@ var ox = (function (ox)		// **播放器主对象**
 		});
 	});
 
+
+
+
+	function setStateEvent()		//设置状态事件
+	{
+		windows.video.event.attach("restate",function (v){
+			ox.menu.itemState("openVideo",v!=0);
+		});
+		windows.mediamenu.event.attach("restate",function (v){
+			ox.menu.itemState("openMediamenu",v!=0);
+		});
+		windows.console.event.attach("restate",function (v){
+			ox.menu.itemState("closeConsole",v==0);
+		});
+		windows.console.event.attach("posState",function (v){
+			ox.menu.itemState("lockConsole",v);
+		});
+		ox.event.attach("playState",function (v){
+			ox.menu.itemState("play",v);
+			ox.co.playButton.toggleClass("-ox-state2",v);
+		});
+		ox.event.attach("loadSkin",function (v){
+			ox.menu.itemState("loadSkin",v);
+		});
+		ox.event.attach("loopState",function (v){
+			ox.menu.itemState("loop",v);
+			ox.co.loopButton.attr("title",word.loop[v])
+				.removeClass("-ox-state33 -ox-state66 -ox-state2")
+				.addClass(["","-ox-state33","-ox-state66","-ox-state2"][v]);
+		});
+		ox.event.attach("mute",function (v){
+			ox.menu.itemState("mute",v);
+			ox.co.muteButton.toggleClass("-ox-state2",v);
+		});
+		ox.event.attach("openConsoleB",function (v){
+			ox.menu.itemState("openConsoleB",v);
+			ox.co.consoleBButton.toggleClass("-ox-state2",v);
+		});
+		ox.event.attach("reverseTime",function (v){
+			ox.menu.itemState("reverseTime",v);
+		});
+		ox.event.attach("accessKey",function (v){
+			ox.menu.itemState("accessKey",v);
+		});
+	}
+
 	function oxJSON(url,text,func)			//加载json
 	{
 		oxDiv.text("Player Loading... ("+text+")");
@@ -2621,6 +2627,7 @@ var ox = (function (ox)		// **播放器主对象**
 		ox.menu.setOpenEventTo(ox.co.relativeDivBox);
 		ox.menu.setRunFun(ox.com);
 		ox.menu.accessKey(config.accessKey);
+		setStateEvent();
 
 		$box.setInitial(ox.co.dialogBox, ox.co.dialogBoxBack);
 		///////////////////////////////
