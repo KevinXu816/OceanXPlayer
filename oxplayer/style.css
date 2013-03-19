@@ -38,20 +38,20 @@
 	border-style: none;
 	text-align: center;
 }
-.oxplayer abbr:hover  { background-position: center top; }
-.oxplayer abbr:active { background-position: right top; }
-.oxplayer abbr.-ox-state2         { background-position: left bottom; }
-.oxplayer abbr.-ox-state2:hover   { background-position: center bottom; }
-.oxplayer abbr.-ox-state2:active  { background-position: right bottom; }
-.oxplayer abbr.-ox-state50        { background-position: left center; }
-.oxplayer abbr.-ox-state50:hover  { background-position: center center; }
-.oxplayer abbr.-ox-state50:active { background-position: right center; }
-.oxplayer abbr.-ox-state33        { background-position: left 33.33%; }
-.oxplayer abbr.-ox-state33:hover  { background-position: center 33.33%; }
-.oxplayer abbr.-ox-state33:active { background-position: right 33.33%; }
-.oxplayer abbr.-ox-state66        { background-position: left 66.66%; }
-.oxplayer abbr.-ox-state66:hover  { background-position: center 66.66%; }
-.oxplayer abbr.-ox-state66:active { background-position: right 66.66%; }
+.oxplayer.oxplayer abbr:hover  { background-position: center top; }
+.oxplayer.oxplayer abbr:active { background-position: right top; }
+.oxplayer.oxplayer abbr.-ox-state2         { background-position: left bottom; }
+.oxplayer.oxplayer abbr.-ox-state2:hover   { background-position: center bottom; }
+.oxplayer.oxplayer abbr.-ox-state2:active  { background-position: right bottom; }
+.oxplayer.oxplayer abbr.-ox-state50        { background-position: left center; }
+.oxplayer.oxplayer abbr.-ox-state50:hover  { background-position: center center; }
+.oxplayer.oxplayer abbr.-ox-state50:active { background-position: right center; }
+.oxplayer.oxplayer abbr.-ox-state33        { background-position: left 33.33%; }
+.oxplayer.oxplayer abbr.-ox-state33:hover  { background-position: center 33.33%; }
+.oxplayer.oxplayer abbr.-ox-state33:active { background-position: right 33.33%; }
+.oxplayer.oxplayer abbr.-ox-state66        { background-position: left 66.66%; }
+.oxplayer.oxplayer abbr.-ox-state66:hover  { background-position: center 66.66%; }
+.oxplayer.oxplayer abbr.-ox-state66:active { background-position: right 66.66%; }
 
 
 .oxplayer ._ox_infoTextBox ,

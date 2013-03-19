@@ -7,8 +7,8 @@
 		{ "na":  "后退", "com": "back" ,"key": "Y" },
 		null,
 		{ "na":  "音量", "da":  [
-			{ "na":  "音量+", "com": "volume1" ,"key": "=" },
-			{ "na":  "音量-", "com": "volume0","key": "-"  },
+			{ "na":  "音量+", "com": "volumeUp" ,"key": "=" },
+			{ "na":  "音量-", "com": "volumeDown","key": "-"  },
 			null,
 			{ "na":  "静音", "com": "mute" ,"key": "M" }
 		]},
@@ -22,14 +22,13 @@
 			{ "na":  "单曲重复", "com": "loop", "options": 2, "key": "1" },
 			{ "na":  "随机播放", "com": "loop", "options": 3, "key": "R" }
 		]},
-		{ "na":  "第一曲", "com": "listHome" },
-		{ "na":  "上一曲", "com": "listPrev" ,"key": "J" },
-		{ "na":  "下一曲", "com": "listNext" ,"key": "K" },
-		{ "na":  "最后一曲", "com": "listEnd" }
+		{ "na":  "第一曲", "com": "home" },
+		{ "na":  "上一曲", "com": "prev" ,"key": "J" },
+		{ "na":  "下一曲", "com": "next" ,"key": "K" },
+		{ "na":  "最后一曲", "com": "end" }
 	]},
 	{ "na":  "皮肤", "da":  [
 		{ "na":  "关于当前皮肤...", "com": "skinAbout" },
-		{ "na":  "联系皮肤作者...", "com": "toSkinAuthor" },
 		null
 	]},
 	{ "na":  "窗口", "da":  [
@@ -111,7 +110,7 @@
   "noResult": "没有找到任何匹配的项目！",
   "qSelect": "请先选择要播放的项目！",
 
-  "search": "分类内搜索",
+  "search": "搜索",
 
 
 

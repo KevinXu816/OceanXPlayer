@@ -1,4 +1,15 @@
-﻿/*------------  控制台  ------------*/
+﻿/*----------------- 皮肤信息 ---------------*/
+
+/*  可写入皮肤名称，制作人，制作人QQ/E-mail，制作日期等（换行用 \n 表示）  */
+.oxplayer .-ox-about1:before {content: "皮肤名称：科技时代";}
+.oxplayer .-ox-about2:before {content: "类型：播放器自带皮肤";}
+.oxplayer .-ox-about3:before {content: "制作人：海浪";}
+.oxplayer .-ox-about4:before {content: "制作日期：2013/3/17";}
+.oxplayer .-ox-about5:before {content: "E-mail：xuhotao@163.com";}
+.oxplayer .-ox-about6:before {content: "说明：这是这个版本播放器的第2套皮肤";}
+.oxplayer .-ox-about7:before {content: "";}
+
+/*------------  控制台  ------------*/
 
 /*  播放器控制台窗口大小  */
 .oxplayer ._ox_consoleBox {
@@ -198,44 +209,45 @@
 
 
 /*  主界面自定义按钮 位置/大小/背景图片  */
-/*  自定义按钮可以有很多个，但要在skinconfig.txt中定义按钮的命令  */
-.oxplayer .-ox-consoleA-button0 {
+/*  自定义按钮可以有很多个，要求编号从1开始，中间编号不能断，背景图片的文件名就是按钮的命令  */
+.oxplayer ._ox_consoleA .-ox-button1 {
 	left: 30px; top: 60px;
 	width: 20px; height: 20px;
 	background: url("stop.png");
 }
-.oxplayer .-ox-consoleA-button1 {
+.oxplayer ._ox_consoleA .-ox-button2 {
 	left: 0px; top: 30px;
 	width: 20px; height: 20px;
 	background: url("prev.png");
 }
-.oxplayer .-ox-consoleA-button2 {
+.oxplayer ._ox_consoleA .-ox-button3 {
 	left: 60px; top: 30px;
 	width: 20px; height: 20px;
 	background: url("next.png");
 }
-.oxplayer .-ox-consoleA-button3 {
+.oxplayer ._ox_consoleA .-ox-button4 {
 	left: 30px; top: 0px;
 	width: 20px; height: 20px;
 	background: url("openMediamenu.png");
 }
 /*  副界面自定义按钮 位置/大小/背景图片  */
-.oxplayer .-ox-consoleB-button0 {
+/*  自定义按钮可以有很多个，要求编号从1开始，中间编号不能断，背景图片的文件名就是按钮的命令  */
+.oxplayer ._ox_consoleB .-ox-button1 {
 	left: 10px; top: 1px;
 	width: 18px; height: 18px;
 	background: url("openVideo.png");
 }
-.oxplayer .-ox-consoleB-button1 {
+.oxplayer ._ox_consoleB .-ox-button2 {
 	left: 35px; top: 1px;
 	width: 18px; height: 18px;
 	background: url("openLrc.png");
 }
-.oxplayer .-ox-consoleB-button2 {
+.oxplayer ._ox_consoleB .-ox-button3 {
 	left: 60px; top: 1px;
 	width: 18px; height: 18px;
 	background: url("saveList.png");
 }
-.oxplayer .-ox-consoleB-button3 {
+.oxplayer ._ox_consoleB .-ox-button4 {
 	left: 85px; top: 1px;
 	width: 18px; height: 18px;
 	background: url("loadList.png");

@@ -1024,7 +1024,7 @@ var MenuClass = $f.Class(function(mword,idp)//*********** 主菜单Class
 
 	itemState: function (id,cv)			//设置菜单项目状态
 	{
-		if(this.co[id].length>0)
+		if(this.co[id].length>1)
 			this.co[id].each(function (){
 				var t = $(this);
 				t.toggleClass("-ox-d",t.data("options")==cv);
@@ -1068,9 +1068,8 @@ var ScreenClass = $f.Class(function(idp)	// **电子屏Class**
 
 	clue: function (text)
 	{
-		this.idj.stop(true,true);
 		ox.co.infoClue.text(text);
-		this.idj.slideUp(200).delay(1000).slideDown(200);
+		this.idj.finish().slideUp(200).delay(1000).slideDown(200);
 	}
 });
 
@@ -1160,23 +1159,29 @@ var ListClass = $f.Class(function(idp)	// **列表Class**
 var ButtonClass = $f.Class(function()	// **按钮Class**
 {
 	this.abbr = null;			//创建的按钮
+	this.rhm = /.+\/(.+?)\./;
 },{
-	found: function (o)			//创建按钮
+	found: function ()			//创建按钮
 	{
 		this.abbr && this.abbr.remove();
 		this.abbr = $();
-		this.fb("-ox-consoleA-button",o.buttonA,ox.co.consoleA);
-		this.fb("-ox-consoleB-button",o.buttonB,ox.co.consoleB);
+		this.fo(ox.co.consoleA);
+		this.fo(ox.co.consoleB);
 	} ,
 
-	fb: function (clna,o,con)
+	fo: function (o)
 	{
-		$f.each(o,this,function (n,i){
-			this.abbr=this.abbr.add($("<abbr />",{
-				"class": clna+i ,
-				title: word.buttonTitle[n]
-			}).data("com",n).appendTo(con));
-		});
+		var i=1, abbr, com;
+		while(true)
+		{
+			abbr = $("<abbr />",{"class": "-ox-button"+(i++)}).appendTo(o);
+			if(!this.rhm.test(abbr.css("backgroundImage")))
+				break;
+			com = RegExp.$1;
+			abbr.attr("title",word.buttonTitle[com]).data("com",com);
+			this.abbr=this.abbr.add(abbr);
+		}
+		abbr.remove();
 	} ,
 
 	setTitle: function ()		//设置按钮Title
@@ -1208,7 +1213,6 @@ var SkinClass = $f.Class(function()		// **皮肤Class**
 {
 	this.link = null;			//加载皮肤的link
 	this.name = "";				//加载皮肤的name
-	this.json = null;
 	this.div = null;			//创建的装饰图片
 },{
 	load: function (name)			//加载样式
@@ -1217,7 +1221,7 @@ var SkinClass = $f.Class(function()		// **皮肤Class**
 			return;
 		this.name = name;
 		this.loadCSS();
-		this.loadJSON();
+		this.loadStyleEnd();
 	} ,
 
 	loadCSS: function ()		//加载样式表
@@ -1229,33 +1233,20 @@ var SkinClass = $f.Class(function()		// **皮肤Class**
 			type: "text/css",
 			charset: "utf-8"
 		});
+		//.load(function(event){alert(123);});  link的load事件Safari不支持，，，弃用之
 		$("head")[0].appendChild(this.link[0]);
-	} ,
-
-	loadJSON: function ()		//加载JSON
-	{
-		var t = this;
-		$.getJSON(options.path+$f.strReVal(options.skin,{name:this.name,file:"skinconfig.txt"}), function (data){
-			t.json = data;
-			t.loadend();
-		});
-	} ,
-
-	loadend: function ()		//皮肤加载完成
-	{
-		ox.button.found(this.json);
-		this.loadStyleEnd();
 	} ,
 
 	loadStyleEnd: function ()		//样式表加载完成
 	{
 		if(ox.co.consoleA.width()!=0)
 		{
+			ox.button.found();
 			this.ornament();
 			ox.event.run("loadSkin",this.name);
 		}
 		else
-			setTimeout($.proxy(this,"loadStyleEnd"),500);
+			setTimeout($.proxy(this,"loadStyleEnd"),100);
 	} ,
 
 	ornament: function ()		//创建装饰图片
@@ -1283,13 +1274,7 @@ var SkinClass = $f.Class(function()		// **皮肤Class**
 
 	about: function ()
 	{
-		$box.alert(this.json.aboutText,180,word.buttonTitle.skinAbout);
-	} ,
-
-	toAuthor: function ()		//联系皮肤作者
-	{
-		ox.co.mail[0].href = "mailto:"+this.json.mail;
-		ox.co.mail[0].click();
+		$box.dialog({ text: '<p class="-ox-about1"></p><p class="-ox-about2"></p><p class="-ox-about3"></p><p class="-ox-about4"></p><p class="-ox-about5"></p><p class="-ox-about6"></p><p class="-ox-about7"></p>' , width: 210 , title: word.buttonTitle.skinAbout});
 	}
 });
 
@@ -1570,17 +1555,15 @@ var mediamenu = (function (mm)		// **************媒体选单对象
 
 		ox.co.allSelectButton.click(function(event)		//全选按钮
 		{
-			ox.co.listBox.find("input").attr("checked",true);
+			ox.co.listBox.find("input").prop("checked",true);
 		});
 		ox.co.reSelectButton.click(function(event)		//反选按钮
 		{
-			ox.co.listBox.find("input").each(function (){
-				this.checked = ! this.checked;
-			});
+			ox.co.listBox.find("input").prop("checked",function(i,v){return !v;});
 		});
 		ox.co.noSelectButton.click(function(event)		//全清按钮
 		{
-			ox.co.listBox.find("input").attr("checked",false);
+			ox.co.listBox.find("input").prop("checked",false);
 		});
 
 		ox.co.typePageUp.click(function(event)			//分类标签上翻页按钮
@@ -2206,16 +2189,16 @@ var ox = (function (ox)		// **播放器主对象**
 			case "stop":			rv = player.stop(); break;
 			case "forth":			rv = player.forth(); break;
 			case "back":			rv = player.back(); break;
-			case "volume1":			rv = player.setVolume("+"); break;
-			case "volume0":			rv = player.setVolume("-"); break;
+			case "volumeUp":		rv = player.setVolume("+"); break;
+			case "volumeDown":		rv = player.setVolume("-"); break;
 			case "mute":			rv = player.mute(); break;
 			case "fullScreen":		rv = player.fullScreen(); break;
 
 			case "loop":			rv = playerList.setLoopState(v); break;
-			case "listHome":		rv = playerList.home(); break;
-			case "listPrev":		rv = playerList.prev(); break;
-			case "listNext":		rv = playerList.next(); break;
-			case "listEnd":			rv = playerList.end(); break;
+			case "home":			rv = playerList.home(); break;
+			case "prev":			rv = playerList.prev(); break;
+			case "next":			rv = playerList.next(); break;
+			case "end":				rv = playerList.end(); break;
 
 			case "reverseTime":		rv = ox.time.reverse(); break;
 			case "accessKey":		rv = ox.menu.accessKey(); break;
@@ -2233,7 +2216,6 @@ var ox = (function (ox)		// **播放器主对象**
 			case "accessKeyHelp":	$box.alert(ox.menu.accessKeyList,240,word.buttonTitle.accessKeyHelp); break;
 			case "skinAbout":		ox.skin.about(); break;
 			case "toAuthor":		ox.toAuthor(); break;
-			case "toSkinAuthor":	ox.skin.toAuthor(); break;
 			case "loadSkin":		ox.skin.load(v); break;
 
 			case "min":				v.min(); break;
@@ -2626,8 +2608,8 @@ var ox = (function (ox)		// **播放器主对象**
 		ox.menu = new MenuClass(word.menuWord,ox.co.menu);
 		ox.menu.setOpenEventTo(ox.co.relativeDivBox);
 		ox.menu.setRunFun(ox.com);
-		ox.menu.accessKey(config.accessKey);
 		setStateEvent();
+		ox.menu.accessKey(config.accessKey);
 
 		$box.setInitial(ox.co.dialogBox, ox.co.dialogBoxBack);
 		///////////////////////////////
