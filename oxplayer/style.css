@@ -2,6 +2,7 @@
 .oxplayer * {
 	font-family: 宋体; margin:0px; padding: 0px;
 	-moz-user-select: none;
+	-webkit-user-select: none;
 }
 .oxplayer {
 	font-size: 12px; line-height: 13px;

@@ -187,7 +187,7 @@ var lrc = (function (o)
 				sd.w.push(this.offsetWidth);
 			});
 			sd.n = sp.text();
-			sp.css({width:sd.ws, marginLeft:-Math.floor(sd.ws/2)});
+			sp.css({width:sd.ws, marginLeft:-Math.floor(sd.ws/2)-14});//14是padding-left
 		});
 	}
 

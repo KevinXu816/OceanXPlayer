@@ -366,11 +366,11 @@
 /*  搜索框 位置/大小/背景图片  */
 .oxplayer ._ox_listSearch {
 	left: 112px; top: 28px;
-	width: 148px; height: 17px;
+	width: 148px; height: 18px;
 	background: url("searchBox.png") no-repeat;
 	outline: none;
 	border: none;
-	padding: 6px 0px 0px 23px;
+	padding: 5px 0px 0px 23px;
 	color: #9f5306;
 }
 .oxplayer ._ox_listSearch:hover ,
@@ -563,7 +563,7 @@
 }
 
 .oxplayer .-ox-plugin-background1 {
-	background-color: #f2860f;
+	background-color: #c0650a;
 	color: #ffffff;
 }
 .oxplayer .-ox-plugin-background2 {

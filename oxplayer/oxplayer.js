@@ -371,15 +371,16 @@ var DrawingClass = $f.Class(function(cid,skip)		// **拖拽Class**
 		this.moveing = true;
 		this.docu[0].setCapture && this.docu[0].setCapture();
 		this.docu.mousemove($.proxy(this,"moveEvent")).mouseup($.proxy(this,"upEvent"));
-		$(document).bind("selectstart", this.returnFalse);
+//		$(document).on("selectstart.ox_noselect", false);
 		this.passometer = 0;
+		return false;
 	} ,
 
 	upEvent: function (event)
 	{
 		if(!this.moveing) return;
 		event.stopPropagation();
-		$(document).unbind("selectstart", this.returnFalse);
+//		$(document).off("selectstart.ox_noselect", false);
 		this.docu.unbind("mousemove", this.moveEvent).unbind("mouseup", this.upEvent);
 		this.docu[0].setCapture && this.docu[0].releaseCapture();
 		if(this.passometer>=this.skip)
@@ -398,11 +399,6 @@ var DrawingClass = $f.Class(function(cid,skip)		// **拖拽Class**
 		if(this.passometer>=this.skip)
 			if(this.move(event.pageX, event.pageY))
 				this.upEvent(event);
-	},
-
-	returnFalse: function (event)
-	{
-		return false;
 	},
 
 	down: function (){} ,			//抽象方法，要求子类对其重载
@@ -2581,7 +2577,7 @@ var ox = (function (ox)		// **播放器主对象**
 		});
 
 		oxDiv.html(str);
-		oxDiv.bind("selectstart contextmenu dragstart", false).attr("unselectable","on");
+		oxDiv.bind("selectstart contextmenu dragstart", false);//.attr("unselectable","on");
 
 		$("[class*='_ox_']",oxDiv).each(function (){		//只对class查找一次，以后就不用查找了
 			var t = $(this);

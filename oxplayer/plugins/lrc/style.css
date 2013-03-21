@@ -29,6 +29,11 @@
 
 .oxplayer ._wo_lrcText div {
 	position: relative; left: 50%;
+	padding: 0px 14px;
+}
+
+.oxplayer ._wo_lrcText .-ox-plugin-background1 {
+	border-radius: 9px;
 }
 
 .oxplayer ._wo_lrcPast ,

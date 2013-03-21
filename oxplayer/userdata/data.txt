@@ -1,6 +1,6 @@
 ﻿[
 {"name": "剑起苍澜", "url": "../web/剑起苍澜.mp3",  "lrc": "lrc/剑起苍澜.lrc"} ,
-{"name": "6021.ogg", "url": "../web/6021.ogg"} ,
+{"name": "54545", "url": "../web/6021.ogg", "lrc": "lrc/青花瓷.lrc"} ,
 {"name": "青空", "url": "D:/taotao/My Music/游戏歌曲/AIR—青空.rm"} ,
 {"name": "监禁", "url": "D:/taotao/My Music/游戏歌曲/监禁.rm"} ,
 {"name": "青花瓷", "url": "../web/青花瓷.mp3", "lrc": "lrc/青花瓷.lrc"} ,
