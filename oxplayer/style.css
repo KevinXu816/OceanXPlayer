@@ -1,11 +1,12 @@
 ﻿html , body { height:100%; }
 .oxplayer * {
-	font-family: 宋体; margin:0px; padding: 0px;
+	margin:0px; padding: 0px;
 	-moz-user-select: none;
-	-webkit-user-select: none;
 }
 .oxplayer {
-	font-size: 12px; line-height: 13px;
+	font-family: \5b8b\4f53,sans-serif;
+	font-size: 12px;
+	line-height: 13px;
 	color: #000000;
 	min-width: 0px; min-height: 0px;
 }
@@ -197,11 +198,11 @@
 }
 
 .oxplayer ._ox_menu .-ox-h {
-	float: right; font-size: 17px;
+	float: right; font-size: 17px; font-family:arial;
 }
 
 .oxplayer ._ox_menu .-ox-ds {
-	visibility: hidden;
+	visibility: hidden;  font-family:arial;
 }
 .oxplayer ._ox_menu .-ox-d .-ox-ds {
 	visibility: inherit;

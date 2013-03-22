@@ -71,6 +71,7 @@
 	width: 50px; height: 17px;
 	text-align: center;
 	color: #ffffff;
+	font-family: arial;
 	font-size: 16px;
 	text-shadow: 2px 1px 2px #000000;
 	filter: DropShadow(color=#99000000,offx=2,offy=1,positive=1);

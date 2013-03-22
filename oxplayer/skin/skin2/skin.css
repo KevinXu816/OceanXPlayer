@@ -58,7 +58,7 @@
 .oxplayer ._ox_infoTextBox {
 	left: 88px; top: 21px;
 	width: 108px; height: 14px;
-	color: #ffcc33;
+	color: #ffe495;
 	text-shadow: 1px 1px 1px #5c3c6f;
 	filter: DropShadow(color=#995c3c6f,offx=1,offy=1,positive=1);
 }
@@ -72,8 +72,9 @@
 	left: 144px; top: 38px;
 	width: 50px; height: 19px;
 	text-align: right;
-	color: #ffffff;
+	color: #fbf1d2;
 	font-weight: bold;
+	font-family: arial;
 	font-size: 16px;
 	text-shadow: 2px 1px 2px #000000;
 	filter: DropShadow(color=#99000000,offx=2,offy=1,positive=1);
