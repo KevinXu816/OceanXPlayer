@@ -74,28 +74,6 @@ dragEnd			拖拽结束
 */
 
 
-/*********** 插件样本 ************
-
-(function (oxConf,$){
-	$.fn.oxplayer = function (options){
-		options = $.extend({}, $.fn.oxplayer.defaults, options);
-		this.each(function(){
-			oxConf($,$(this),options);
-		});
-		return this;
-	}
-	$.fn.oxplayer.defaults = {
-		// 插件的defaults参数
-	};
-})(function($,oxDiv,options){
-	//播放器的代码..........
-} , jQuery );
-
-//使用插件时
-$("div.oxplayer").oxplayer();
-
-***********************************/
-
 
 (function (oxConf,$){
 	var path = $("script").eq(-1).attr("src").replace(/[^\/]+$/,"");	//用户页面与播放器目录的相对路径
@@ -123,15 +101,7 @@ $("div.oxplayer").oxplayer();
 		plugins[po.name] = po;
 	};
 
-	$.fn.oxplayer = function (options){
-		options = $.extend({}, $.fn.oxplayer.defaults, options);
-		this.each(function(){
-			oxConf($,$(this),options,plugins);
-		});
-		return this;
-	}
-
-	$.fn.oxplayer.defaults = {
+	window.$oxplayer.options = {
 		// 插件的defaults参数
 		path: path,
 		config: "userdata/config.txt",
@@ -141,16 +111,12 @@ $("div.oxplayer").oxplayer();
 	};
 
 	//加载外部 js
-	$.getScript(path+"plugins/playerplugins.js",function ()
-	{
-
-	//使用插件
+	$.getScript(path+"plugins/playerplugins.js",function (){
 		$(function (){
 			delete window.$oxplayer.plugin;
-			$("div.oxplayer").oxplayer();
+			oxConf($,$("div.oxplayer:first"),window.$oxplayer.options,plugins);
 		});
 	});
-
 
 	path = undefined;
 })(function($,oxDiv,options,plugins){
@@ -1140,7 +1106,7 @@ var ListClass = $f.Class(function(idp)	// **列表Class**
 
 	setRunFun: function (fun)
 	{
-		this.ol.delegate("li","dblclick",function ()
+		this.ol.delegate("li","click",function ()
 		{
 			fun($(this).data("value"));
 		});
