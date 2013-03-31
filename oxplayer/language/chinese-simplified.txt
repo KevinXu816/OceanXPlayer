@@ -71,7 +71,7 @@
   "flieText": "浩海 O'ceanX播放器",
   "dePlay": "是否现在播放音乐？",
   "about": "关于浩海 O'ceanX播放器",
-  "help": "浩海 O'ceanX播放器使用帮助\n浩海 O'ceanX播放器使用帮助 浩海 O'ceanX播放器使用帮助\n浩海 O'ceanX播放器使用帮助 浩海 O'ceanX播放器使用帮助\n浩海 O'ceanX播放器使用帮助 浩海 O'ceanX播放器使用帮助\n浩海 O'ceanX播放器使用帮助 浩海 O'ceanX播放器使用帮助\n浩海 O'ceanX播放器使用帮助 浩海 O'ceanX播放器使用帮助\n浩海 O'ceanX播放器使用帮助 浩海 O'ceanX播放器使用帮助\n浩海 O'ceanX播放器使用帮助 浩海 O'ceanX播放器使用帮助\n浩海 O'ceanX播放器使用帮助 浩海 O'ceanX播放器使用帮助\n浩海 O'ceanX播放器使用帮助 浩海 O'ceanX播放器使用帮助\n浩海 O'ceanX播放器使用帮助 浩海 O'ceanX播放器使用帮助\n浩海 O'ceanX播放器使用帮助 浩海 O'ceanX播放器使用帮助\n浩海 O'ceanX播放器使用帮助 浩海 O'ceanX播放器使用帮助\n浩海 O'ceanX播放器使用帮助 浩海 O'ceanX播放器使用帮助\n浩海 O'ceanX播放器使用帮助 浩海 O'ceanX播放器使用帮助\n浩海 O'ceanX播放器使用帮助 浩海 O'ceanX播放器使用帮助",
+  "help": "浩海 O'ceanX播放器使用帮助\n浩海 O'ceanX播放器使用帮助",
   "loopTitle": "循环模式:",
   "loop": ["顺序播放","全部循环","单曲重复","随机播放"],
   "volume": "音量:",
@@ -96,6 +96,7 @@
   "autoNext": "自动播放下一曲",
   "reTime1": "倒序显示播放时间",
   "reTime2": "正常显示播放时间",
+  "listOneItem": "就一个了，别再删了",
 
 
   "all": "※ 全部 ※",

@@ -1078,8 +1078,9 @@ var ListClass = $f.Class(function(idp)	// **列表Class**
 {
 	this.idj = idp;									//列表层jQuery对像
 	this.ol = null;									//列表jQuery对像
+	this.lis = null;								//列表项目jQuery对像
 	this.indexStr = ".";							//索引
-	this.lastPlayItem = $();						//上次播放的项目
+	this.lastPlayItem = false;						//上次播放的项目
 	this.createSelect();
 },{
 	createSelect: function ()						//创建列表html元素
@@ -1091,25 +1092,61 @@ var ListClass = $f.Class(function(idp)	// **列表Class**
 	update: function (arr,n)						//更新列表数据
 	{
 		arr = arr || [];
+		this.lis = $();
 		this.ol.empty();
-		$f.each(arr,this,function (vv,ii)
+		$f.each(arr,this,function(vv,ii)
 		{
-			$("<li>").text(ii+1+this.indexStr+(n?vv[n]:vv)).data("value",ii).appendTo(this.ol);
+			this.lis = this.lis.add($("<li>").text(ii+1+this.indexStr+(n?vv[n]:vv)).data("value",ii).appendTo(this.ol));
 		});
+		this.playItem(this.lastPlayItem);
 	} ,
 
 	playItem: function (n)						//更新当前播放的项目
 	{
-		this.lastPlayItem.removeClass("-ox-playing");
-		this.lastPlayItem = this.ol.find("li").eq(n).addClass("-ox-playing");
+		if(this.lastPlayItem!==false)
+			this.lis.eq(this.lastPlayItem).removeClass("-ox-playing");
+		if(n!==false)
+			this.lis.eq(n).addClass("-ox-playing");
+		this.lastPlayItem = n;
 	} ,
 
 	setRunFun: function (fun)
 	{
-		this.ol.delegate("li","click",function ()
+		var timeout;
+		var chg = null;		//<span>text:"X"
+		function out()
 		{
-			fun($(this).data("value"));
-		});
+			clearTimeout(timeout);
+			if(chg)
+			{
+				chg.remove();
+				chg = null;
+			}
+		}
+		this.ol.on({
+			mouseup:function()
+			{
+				if(chg)
+				{
+					out();
+					fun.pin($(this).data("value"));
+				}
+				else
+				{
+					out();
+					fun.click($(this).data("value"));
+				}
+			},
+			mousedown:function()
+			{
+				var t = $(this);
+				chg = null;
+				timeout = setTimeout(function(){
+					chg = $("<span>",{html:"&#10006"}).prependTo(t);
+				},1000);
+				t.one("mouseleave", out);
+			}
+		},"li");
 	}
 });
 
@@ -1902,7 +1939,7 @@ var player = (function (p)		// **************播放对象
 	{
 		muteState = !muteState;
 		ox.event.run("mute", muteState);
-		if(plugin);
+		if(plugin)
 			plugin.mute(muteState);
 	}
 
@@ -1978,7 +2015,7 @@ var playerList = (function (p)		// ************播放列表对象
 		sd(data,true);
 		function openPlay(t)
 		{
-			p.update(lt,t==1);
+			p.update( lt,t==1);
 			if(t==2)
 				ox.co.playButton.one("click", clickStartPlay);
 		}
@@ -2007,6 +2044,8 @@ var playerList = (function (p)		// ************播放列表对象
 		ox.screen.text({ol:list.length});
 		if(play!==false)
 			startPlay();
+		else
+			ox.playlist.playItem(false);
 	}
 
 	window.$oxplayer.add = p.add = function (lt,play)		//追加当前列表
@@ -2022,6 +2061,21 @@ var playerList = (function (p)		// ************播放列表对象
 		ox.screen.text({ol:list.length});
 		if(play!==false)
 			p.go(jl);
+	}
+
+	p.del = function (n)									//删除列表项目
+	{
+		if(list.length<=1){ $box.alert(word.listOneItem); return; }
+		n = n<=0?0:n>=list.length?list.length-1:n;
+		list.splice(n,1);
+		ox.playlist.update(list,"name");
+		rnd = [];
+		var tindex = index;
+		if(n<index)
+			ox.playlist.playItem(--index);
+		ox.screen.text({oi:index+1,ol:list.length});
+		if(n==tindex)
+			p.go(n);
 	}
 
 	function startPlay()	//开始播放
@@ -2592,7 +2646,7 @@ var ox = (function (ox)		// **播放器主对象**
 		ox.time.reverse(config.reverseTime);
 
 		ox.playlist = new ListClass(ox.co.playList);
-		ox.playlist.setRunFun(playerList.go);
+		ox.playlist.setRunFun({click:playerList.go , pin:playerList.del});
 
 		playerList.setLoopState(config.loop);
 
