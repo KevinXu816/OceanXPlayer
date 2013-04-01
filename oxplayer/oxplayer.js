@@ -1118,27 +1118,25 @@ var ListClass = $f.Class(function(idp)	// **列表Class**
 		{
 			clearTimeout(timeout);
 			if(chg)
-			{
 				chg.remove();
-				chg = null;
-			}
+			chg = null;
 		}
 		this.ol.on({
-			mouseup:function()
+			click:function()
 			{
-				if(chg)
-				{
-					out();
-					fun.pin($(this).data("value"));
-				}
-				else
-				{
-					out();
+				clearTimeout(timeout);
+				if(!chg)
 					fun.click($(this).data("value"));
-				}
 			},
-			mousedown:function()
+			mouseup:function(event)
 			{
+				if(event.which!=1) return;
+				if(chg)
+					fun.pin($(this).data("value"));
+			},
+			mousedown:function(event)
+			{
+				if(event.which!=1) return;
 				var t = $(this);
 				chg = null;
 				timeout = setTimeout(function(){

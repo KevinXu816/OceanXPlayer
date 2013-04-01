@@ -112,9 +112,8 @@
 	height: 12px;
 }
 .oxplayer .-ox-listBox li span {
-	font-family: arial;
-	font-size: 10px;
-	margin-left: 2px; margin-right: 6px;
+	font-family: arial; font-size: 10px;
+	margin-right: 2px;
 	color: #ff0000;
 }
 
