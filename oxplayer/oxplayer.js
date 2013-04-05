@@ -329,15 +329,16 @@ var DrawingClass = $f.Class(function(cid,skip)		// **拖拽Class**
 		if(this.moveing)
 		{
 			this.upEvent(event);
-			return;
+			return false;
 		}
-		if(this.tag.test(event.target.tagName) || event.which!=1 || this.down(event.pageX, event.pageY))
+		if(this.tag.test(event.target.tagName) || event.which!=1)
 			return;
+		if(this.down(event.pageX, event.pageY))
+			return false;
 		event.stopPropagation();
 		this.moveing = true;
 		this.docu[0].setCapture && this.docu[0].setCapture();
 		this.docu.mousemove($.proxy(this,"moveEvent")).mouseup($.proxy(this,"upEvent"));
-//		$(document).on("selectstart.ox_noselect", false);
 		this.passometer = 0;
 		return false;
 	} ,
@@ -346,7 +347,6 @@ var DrawingClass = $f.Class(function(cid,skip)		// **拖拽Class**
 	{
 		if(!this.moveing) return;
 		event.stopPropagation();
-//		$(document).off("selectstart.ox_noselect", false);
 		this.docu.unbind("mousemove", this.moveEvent).unbind("mouseup", this.upEvent);
 		this.docu[0].setCapture && this.docu[0].releaseCapture();
 		if(this.passometer>=this.skip)
@@ -1697,8 +1697,7 @@ var player = (function (p)		// **************播放对象
 			} ,
 			move: function (v)
 			{
-				ox.co.dialogTime.css("marginLeft",Math.round(v*10000)/100+"%")
-					.text($f.timeToString(v * lengthData));
+				ox.co.dialogTime.text($f.timeToString(v * lengthData));
 			} ,
 			end: function (v)
 			{
@@ -2274,8 +2273,7 @@ var ox = (function (ox)		// **播放器主对象**
 			'  <div class="_ox_timeText">0:00</div>' +		//当前播放时间信息
 			'  <div class="_ox_stateText">- - - -</div>' +	//播放状态信息
 			'  <div class="_ox_playSlider">' +				//播放进度滑动条
-			'    <div class="-ox-sche"><div></div></div>' +
-			'    <div class="_ox_dialogTime"></div>' +		//播放滑动条拖动预览时间
+			'    <div class="-ox-sche"><div><div class="_ox_dialogTime"></div></div></div>' +
 			'  </div>' +
 			'  <div class="_ox_volumeSlider">' +		//音量滑动条
 			'    <div class="-ox-sche"><div></div></div>' +

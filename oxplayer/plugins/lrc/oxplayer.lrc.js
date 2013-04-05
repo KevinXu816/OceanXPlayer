@@ -83,7 +83,7 @@ $o.com.openLrc = function ()
 
 $o.event.attach("windowsInitial", function (){
 	$p.win.setMove();
-	$p.win.setResize(null,{minw: 160, minh: 100, maxw: 400, maxh: 400});
+	$p.win.setResize(null,{minw: 180, minh: 150, maxw: 600, maxh: 500});
 	$p.co.title.text($p.word.title);
 	$p.win.event.attach("restate", function (v){
 		$o.getObject("ox.menu").itemState("openLrc",v!=0);

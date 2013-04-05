@@ -349,7 +349,7 @@ var editList = (function (o)		//编辑播放列表对像
 		listUpdate(0);
 		editPlayList = editUserList = false;
 
-		$o.box.dialog({ text: dom , width: 240 , title: $p.word.editList , fun: close, bs: $p.word.dialogBs2 });
+		$o.box.dialog({ text: dom , width: 245 , title: $p.word.editList , fun: close, bs: $p.word.dialogBs2 });
 	}
 
 	function close()

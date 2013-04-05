@@ -91,24 +91,24 @@
 
 /*  播放进度滑动条 位置/大小/背景图片  */
 .oxplayer ._ox_playSlider {
-	left: 79px; top: 59px;
-	width: 82px; height: 13px;
-	padding-right: 11px;/*这里设置成和滑动手柄的width一个数值*/
-	background: url() no-repeat;
+	left: 77px; top: 60px;
+	width: 84px; height: 13px;
+	padding-right: 13px;/*这里设置成滑动手柄width一样的数值*/
 }
 /*  播放进度滑动条已滑过的背景图片  */
 .oxplayer ._ox_playSlider > .-ox-sche {
+	padding-right: 6px;/*这里设置成滑动手柄width一半的数值*/
 	background: url("playSlider.png");
 }
 /*  播放进度滑动条滑动手柄 大小/背景图片  */
 .oxplayer ._ox_playSlider > .-ox-sche > div {
-	width: 11px; height: 100%;
+	width: 13px; height: 100%;
 	background: url("playSliderH.png") no-repeat;
 }
 /*  播放滑动条拖动预览时间 大小/背景图片/字体  */
 .oxplayer ._ox_dialogTime {
 	width: 50px; height: 21px;
-	left: -46px; top: -31px;
+	left: -46px; top: -18px;
 	z-index: 299;
 	background: url("dialogTime.png") no-repeat;
 	padding-top: 3px;
@@ -121,11 +121,11 @@
 .oxplayer ._ox_volumeSlider {
 	left: 89px; top: 1px;
 	width: 62px; height: 10px;
-	padding-right: 0px;/*这里设置成和滑动手柄的width一个数值*/
-	background: url() no-repeat;
+	padding-right: 0px;/*这里设置成滑动手柄width一样的数值*/
 }
 /*  音量滑动条已滑过的背景图片  */
 .oxplayer ._ox_volumeSlider > div {
+	padding-right: 0px;/*这里设置成滑动手柄width一半的数值*/
 	background: url("volumeSlider.png") no-repeat;
 }
 /*  音量滑动条滑动手柄 大小/背景图片  */
