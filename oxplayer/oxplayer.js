@@ -750,19 +750,29 @@ var SliderClass = $f.Class(function(cid,mf)		// **滑动条Class**
 	this.jgdiv = cid.children().eq(0);
 	this.sbdiv = this.jgdiv.children().eq(0);
 	this.mf = mf || {};		//类操作
+	this.css = this.jgdiv[0].style;
 	this.position = 0;		//滑块位置
+	this.pos = 0;
+	this.step = 0;
+	this.rg = 0;
+	this.timeout = null;
+	this.run = $.proxy(this.run, this);
 },{
 	extend: DrawingClass ,
 
 	down: function (x,y)
 	{
 	    if(this.mf.start && this.mf.start()===false) return true;
+		this.d = {
+			x: this.sbdiv.width()/2 + this.cid.offset().left ,
+			w: this.cid.width()
+	    };
 		this.move(x,y);
 	} ,
 
 	move: function (x,y)
 	{
-		var d = (x - this.sbdiv.width()/2 - this.cid.offset().left)/this.cid.width();
+		var d = (x-this.d.x)/this.d.w;
 		this.gotoPosition(d);
 		this.mf.move && this.mf.move(this.getPosition());
 	} ,
@@ -772,10 +782,28 @@ var SliderClass = $f.Class(function(cid,mf)		// **滑动条Class**
 		this.mf.end && this.mf.end(this.getPosition());
 	} ,
 
+	run: function ()
+	{
+		clearTimeout(this.timeout);
+		if($.fx.off || Math.abs(this.position-this.pos)<=this.rg)
+		{
+			this.pos = this.position;
+			this.css.width = Math.round(this.pos*10000)/100+"%";
+		}
+		else
+		{
+			this.pos += (this.position>this.pos)?this.step:-this.step;
+			this.css.width = Math.round(this.pos*10000)/100+"%";
+			this.timeout = setTimeout(this.run, 50);
+		}
+	} ,
+
 	gotoPosition: function (x)
 	{
 	    this.position = x<0?0:(x>1?1:x);
-		this.jgdiv.css("width",Math.round(this.position*10000)/100+"%");
+		this.step = Math.abs(this.position-this.pos)/4;
+		this.rg = Math.max(0.03,this.step);
+		this.run();
 	} ,
 
 	getPosition: function ()		//取滑块位置
@@ -1031,7 +1059,7 @@ var ScreenClass = $f.Class(function(idp)	// **电子屏Class**
 	clue: function (text)
 	{
 		ox.co.infoClue.text(text);
-		this.idj.finish().slideUp(200).delay(1000).slideDown(200);
+		this.idj.clearQueue().slideUp(200).delay(1000).slideDown(200);
 	}
 });
 
@@ -2171,28 +2199,6 @@ var playerList = (function (p)		// ************播放列表对象
 
 var ox = (function (ox)		// **播放器主对象**
 {
-	ox.toAuthor = function ()		//联系播放器作者
-	{
-		ox.co.mail[0].href = "mailto:"+word.toAuthor;
-		ox.co.mail[0].click();
-	}
-
-	ox.openConsoleB = function ()		//显示控制台副界面
-	{
-		ox.co.consoleBox.toggleClass("-ox-Bshow");
-		var ds = ox.co.consoleBox.hasClass("-ox-Bshow");
-		if(ds)
-		{
-			ox.co.consoleBox.css("height",config.consoleBopenHeight.initial);
-		}
-		else
-		{
-			config.consoleBopenHeight.initial = ox.co.consoleBox.height();
-			ox.co.consoleBox.css("height","");
-		}
-		ox.event.run("openConsoleB",ds);
-	}
-
 	ox.com = function (s,v)		//
 	{
 		var rv;
@@ -2215,6 +2221,7 @@ var ox = (function (ox)		// **播放器主对象**
 
 			case "reverseTime":		rv = ox.time.reverse(); break;
 			case "accessKey":		rv = ox.menu.accessKey(); break;
+			case "animated":		ox.animated(v); break;
 
 			case "menu":			ox.menu.openMenu(ox.co.menuButton); break;
 			case "openMediamenu":	windows.mediamenu.minKg(); break;
@@ -2238,6 +2245,38 @@ var ox = (function (ox)		// **播放器主对象**
 			default:				rv = ox.com[s]?ox.com[s]():s+"还没完成"; break;
 		}
 		rv && ox.screen.clue(rv);
+	}
+
+
+	ox.toAuthor = function ()		//联系播放器作者
+	{
+		ox.co.mail[0].href = "mailto:"+word.toAuthor;
+		ox.co.mail[0].click();
+	}
+
+	ox.openConsoleB = function ()		//显示控制台副界面
+	{
+		ox.co.consoleBox.toggleClass("-ox-Bshow");
+		var ds = ox.co.consoleBox.hasClass("-ox-Bshow");
+		if(ds)
+		{
+			ox.co.consoleBox.css("height",config.consoleBopenHeight.initial);
+		}
+		else
+		{
+			config.consoleBopenHeight.initial = ox.co.consoleBox.height();
+			ox.co.consoleBox.css("height","");
+		}
+		ox.event.run("openConsoleB",ds);
+	}
+
+	ox.animated = function (v)		//界面动画
+	{
+		$.fx.off = v===0;
+		var nv = [,70,30,13][v];
+		if(nv)
+			$.fx.interval = nv;
+		ox.event.run("animated",v);
 	}
 
 
@@ -2496,6 +2535,10 @@ var ox = (function (ox)		// **播放器主对象**
 		ox.event.attach("accessKey",function (v){
 			ox.menu.itemState("accessKey",v);
 		});
+		ox.event.attach("animated",function (v){
+			ox.menu.itemState("animated",v);
+		});
+
 	}
 
 	function oxJSON(url,text,func)			//加载json
@@ -2640,6 +2683,8 @@ var ox = (function (ox)		// **播放器主对象**
 
 		ox.time = new TimeBoxClass(ox.co.timeText);
 		ox.time.reverse(config.reverseTime);
+
+		ox.animated(config.animated);
 
 		ox.playlist = new ListClass(ox.co.playList);
 		ox.playlist.setRunFun({click:playerList.go , pin:playerList.del});

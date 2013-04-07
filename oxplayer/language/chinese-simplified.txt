@@ -38,6 +38,13 @@
 		null
 	]},
 	{ "na":  "选项", "da":  [
+		{ "na":  "界面动画", "da":  [
+			{ "na":  "界面动画频率-高", "com": "animated", "options": 3 },
+			{ "na":  "界面动画频率-中", "com": "animated", "options": 2 },
+			{ "na":  "界面动画频率-低", "com": "animated", "options": 1 },
+			null,
+			{ "na":  "关闭界面动画", "com": "animated", "options": 0 }
+		]},
 		{ "na":  "允许使用快捷键", "com": "accessKey" },
 		{ "na":  "倒序显示播放时间", "com": "reverseTime" }
 	]},
