@@ -1086,7 +1086,7 @@ var TimeBoxClass = $f.Class(function(idp)	// ** 播放时间框Class **
 	text: function (tm,tl)							//
 	{
 		if(this.reverseTime)
-			tm = tl - tm;
+			tm = (tl||3600) - tm;
 		this.idj.text($f.timeToString(tm));
 	} ,
 
@@ -1755,13 +1755,12 @@ var player = (function (p)		// **************播放对象
 		if(!plugin) return;
 		if(lengthData<=0)
 		{
-			lengthData = plugin.length() || 0;
-			if(lengthData>0)
-				ox.screen.text({tm:$f.timeToString(lengthData)});
+			lengthData = plugin.length()*1 || 0;
+			lengthData>0 && ox.screen.text({tm:$f.timeToString(lengthData)});
 		}
 		time = p.pos();
 		ox.time.text(time,lengthData);
-		playSlider.setPosition(time/lengthData);
+		lengthData>0 && playSlider.setPosition(time/lengthData);
 		plugin.simulateEvent && plugin.simulateEvent();
 	}
 
@@ -1929,7 +1928,7 @@ var player = (function (p)		// **************播放对象
 	p.pos = function()			//当前位置
 	{
 		if(!plugin) return 0;
-		return plugin.pos() || 0;
+		return plugin.pos()*1 || 0;
 	}
 
 	p.length = function()		//媒体总长度
